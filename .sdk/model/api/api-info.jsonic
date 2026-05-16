@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "API Support"
+        url: "https://www.useragentlookup.com/"
+      }
+      description: "This API allows users to parse and retrieve information about user agents for free. It has no limitations or rate limiting, enabling unlimited requests by simply calling the appropriate endpoint with the user agent string."
+      license: {
+        name: "Free to use"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://www.useragentlookup.com/api"
+        }
+      ]
+      termsOfService: "https://www.useragentlookup.com/"
+      title: "User Agent Lookup API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

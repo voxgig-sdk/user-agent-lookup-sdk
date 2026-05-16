@@ -1,0 +1,189 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "User Agent Lookup API",
+    "description": "This API allows users to parse and retrieve information about user agents for free. It has no limitations or rate limiting, enabling unlimited requests by simply calling the appropriate endpoint with the user agent string.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support",
+      "url": "https://www.useragentlookup.com/"
+    },
+    "termsOfService": "https://www.useragentlookup.com/",
+    "license": {
+      "name": "Free to use"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.useragentlookup.com/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/user-agent": {
+      "get": {
+        "summary": "Parse User Agent",
+        "description": "Parse any User Agent string and retrieve detailed information about the browser, operating system, device, and other attributes. This endpoint is completely free with no rate limiting.",
+        "operationId": "parseUserAgent",
+        "tags": [
+          "User Agent"
+        ],
+        "parameters": [
+          {
+            "name": "ua",
+            "in": "query",
+            "description": "The User Agent string to parse",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with parsed user agent information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "browser": {
+                      "type": "string",
+                      "description": "Browser name",
+                      "example": "Chrome"
+                    },
+                    "browserVersion": {
+                      "type": "string",
+                      "description": "Browser version",
+                      "example": "91.0.4472.124"
+                    },
+                    "os": {
+                      "type": "string",
+                      "description": "Operating system name",
+                      "example": "Windows"
+                    },
+                    "osVersion": {
+                      "type": "string",
+                      "description": "Operating system version",
+                      "example": "10"
+                    },
+                    "device": {
+                      "type": "string",
+                      "description": "Device type",
+                      "example": "Desktop"
+                    },
+                    "platform": {
+                      "type": "string",
+                      "description": "Platform information",
+                      "example": "Windows"
+                    }
+                  }
+                },
+                "example": {
+                  "browser": "Chrome",
+                  "browserVersion": "91.0.4472.124",
+                  "os": "Windows",
+                  "osVersion": "10",
+                  "device": "Desktop",
+                  "platform": "Windows"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - missing or invalid user agent parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "User agent parameter is required"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Internal server error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserAgentInfo": {
+        "type": "object",
+        "description": "Parsed user agent information",
+        "properties": {
+          "browser": {
+            "type": "string",
+            "description": "Browser name"
+          },
+          "browserVersion": {
+            "type": "string",
+            "description": "Browser version"
+          },
+          "os": {
+            "type": "string",
+            "description": "Operating system name"
+          },
+          "osVersion": {
+            "type": "string",
+            "description": "Operating system version"
+          },
+          "device": {
+            "type": "string",
+            "description": "Device type"
+          },
+          "platform": {
+            "type": "string",
+            "description": "Platform information"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "User Agent",
+      "description": "Operations for parsing and retrieving user agent information"
+    }
+  ],
+  "externalDocs": {
+    "description": "User Agent Lookup API Documentation",
+    "url": "https://www.useragentlookup.com/"
+  }
+}

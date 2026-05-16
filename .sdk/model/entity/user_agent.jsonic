@@ -1,0 +1,79 @@
+# Entity: user_agent
+
+main: kit: entity: user_agent: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "browser"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "browser_version"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "device"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "os"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "os_version"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "platform"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "user_agent"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                kind: "query"
+                name: "ua"
+                orig: "ua"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user-agent"
+          parts: [
+            "user-agent"
+          ]
+          select: {
+            exist: [
+              "ua"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
