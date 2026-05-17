@@ -5,14 +5,14 @@ The Golang SDK for the UserAgentLookup API. Provides an entity-oriented interfac
 
 ## Install
 ```bash
-go get github.com/voxgig-sdk/user-agent-lookup-sdk
+go get github.com/voxgig-sdk/user-agent-lookup-sdk/go
 ```
 
 If the module is not yet published to a registry, use a `replace` directive
 in your `go.mod` to point to a local checkout:
 
 ```bash
-go mod edit -replace github.com/voxgig-sdk/user-agent-lookup-sdk=../path/to/github.com/voxgig-sdk/user-agent-lookup-sdk
+go mod edit -replace github.com/voxgig-sdk/user-agent-lookup-sdk/go=../path/to/github.com/voxgig-sdk/user-agent-lookup-sdk/go
 ```
 
 
@@ -30,8 +30,8 @@ import (
     "fmt"
     "os"
 
-    sdk "github.com/voxgig-sdk/user-agent-lookup-sdk"
-    "github.com/voxgig-sdk/user-agent-lookup-sdk/core"
+    sdk "github.com/voxgig-sdk/user-agent-lookup-sdk/go"
+    "github.com/voxgig-sdk/user-agent-lookup-sdk/go/core"
 )
 
 func main() {
@@ -318,7 +318,7 @@ Use `core.ToMapAny()` to safely cast results and nested data.
 ### Package structure
 
 ```
-github.com/voxgig-sdk/user-agent-lookup-sdk/
+github.com/voxgig-sdk/user-agent-lookup-sdk/go/
 ├── user-agent-lookup.go        # Root package — type aliases and constructors
 ├── core/               # SDK core — client, types, pipeline
 ├── entity/             # Entity implementations
@@ -327,7 +327,7 @@ github.com/voxgig-sdk/user-agent-lookup-sdk/
 └── test/               # Test suites
 ```
 
-The root package (`github.com/voxgig-sdk/user-agent-lookup-sdk`) re-exports everything needed
+The root package (`github.com/voxgig-sdk/user-agent-lookup-sdk/go`) re-exports everything needed
 for normal use. Import sub-packages only when you need specific types
 like `core.ToMapAny`.
 

@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/user-agent-lookup-sdk"
+	sdk "github.com/voxgig-sdk/user-agent-lookup-sdk/go"
 )
 
 func TestExists(t *testing.T) {

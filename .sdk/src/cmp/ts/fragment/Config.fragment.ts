@@ -29,7 +29,7 @@ class Config {
 
 
   options = {
-    base: 'https://www.useragentlookup.com/api',
+    base: '$$main.kit.info.servers.0.url$$',
 
     'AUTHBLOCK'headers: 'HEADERS',
 

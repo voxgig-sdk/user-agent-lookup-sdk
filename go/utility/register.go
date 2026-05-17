@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/user-agent-lookup-sdk/core"
+import "github.com/voxgig-sdk/user-agent-lookup-sdk/go/core"
 
 func init() {
 	core.UtilityRegistrar = registerAll

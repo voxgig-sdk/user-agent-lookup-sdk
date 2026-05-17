@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/user-agent-lookup-sdk"
-	"github.com/voxgig-sdk/user-agent-lookup-sdk/core"
+	sdk "github.com/voxgig-sdk/user-agent-lookup-sdk/go"
+	"github.com/voxgig-sdk/user-agent-lookup-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/user-agent-lookup-sdk/go/utility/struct"
 )
 
 func TestUserAgentEntity(t *testing.T) {

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/user-agent-lookup-sdk"
-	"github.com/voxgig-sdk/user-agent-lookup-sdk/core"
+	sdk "github.com/voxgig-sdk/user-agent-lookup-sdk/go"
+	"github.com/voxgig-sdk/user-agent-lookup-sdk/go/core"
 )
 
 func TestUserAgentDirect(t *testing.T) {

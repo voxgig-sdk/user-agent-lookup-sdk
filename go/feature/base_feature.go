@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/user-agent-lookup-sdk/core"
+	"github.com/voxgig-sdk/user-agent-lookup-sdk/go/core"
 )
 
 type BaseFeature struct {

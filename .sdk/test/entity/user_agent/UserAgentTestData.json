@@ -7,7 +7,8 @@
         "device": "s3e",
         "os": "s3f",
         "os_version": "s40",
-        "platform": "s41"
+        "platform": "s41",
+        "id": "USER_AGENT00"
       },
       "USER_AGENT01": {
         "browser": "s78",
@@ -15,7 +16,8 @@
         "device": "s7a",
         "os": "s7b",
         "os_version": "s7c",
-        "platform": "s7d"
+        "platform": "s7d",
+        "id": "USER_AGENT01"
       },
       "USER_AGENT02": {
         "browser": "sb4",
@@ -23,7 +25,8 @@
         "device": "sb6",
         "os": "sb7",
         "os_version": "sb8",
-        "platform": "sb9"
+        "platform": "sb9",
+        "id": "USER_AGENT02"
       }
     }
   },
