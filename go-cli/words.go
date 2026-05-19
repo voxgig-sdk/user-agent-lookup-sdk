@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/aql-lang/aql/eng"
+	eng "github.com/aql-lang/aql/eng/go"
 	sdk "github.com/voxgig-sdk/user-agent-lookup-sdk/go"
 )
 
