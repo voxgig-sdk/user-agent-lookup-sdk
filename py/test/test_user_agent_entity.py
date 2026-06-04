@@ -91,7 +91,6 @@ def _user_agent_basic_setup(extra):
         "USERAGENTLOOKUP_TEST_USER_AGENT_ENTID": idmap,
         "USERAGENTLOOKUP_TEST_LIVE": "FALSE",
         "USERAGENTLOOKUP_TEST_EXPLAIN": "FALSE",
-        "USERAGENTLOOKUP_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +101,6 @@ def _user_agent_basic_setup(extra):
     if env.get("USERAGENTLOOKUP_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("USERAGENTLOOKUP_APIKEY"),
             },
             extra or {},
         ])

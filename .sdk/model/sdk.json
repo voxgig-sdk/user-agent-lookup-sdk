@@ -21,7 +21,17 @@
         ],
         "termsOfService": "https://www.useragentlookup.com/",
         "title": "User Agent Lookup API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Parse a User-Agent string into structured browser, OS, and device data",
+        "homepage": "https://www.useragentlookup.com/",
+        "docs_url": "https://www.useragentlookup.com/",
+        "license_short": "Free to use; no API key, no rate limiting",
+        "license_md": "- Free to use for any number of requests\n- No authentication or API key required\n- No published rate limits\n- CORS is not enabled, so calls must be made server-side",
+        "about_md": "[User Agent Lookup](https://www.useragentlookup.com/) is a small public service that parses raw `User-Agent` strings and returns structured information about the requesting browser, operating system, and device.\n\nWhat you get from the API:\n\n- A single `GET` endpoint that accepts a `ua` query parameter containing the User-Agent string\n- A JSON response with parsed fields describing the client (the maintainers note the output is stable but new fields may be added over time)\n\nOperational notes:\n\n- Base URL: `https://www.useragentlookup.com/api`\n- No API key or auth header is required\n- The service advertises no rate limiting and high uptime, but CORS is disabled, so requests should be issued from a server rather than directly from a browser",
+        "entity_desc": {
+          "user_agent": "A parsed representation of a `User-Agent` header string, retrieved via `GET /user-agent?ua={user-agent-string}`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -29,7 +39,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "user_agent": {
