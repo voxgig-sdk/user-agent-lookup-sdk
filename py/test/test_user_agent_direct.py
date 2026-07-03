@@ -64,12 +64,14 @@ def _user_agent_direct_setup(mockres):
     env = runner.env_override({
         "USERAGENTLOOKUP_TEST_USER_AGENT_ENTID": {},
         "USERAGENTLOOKUP_TEST_LIVE": "FALSE",
+        "USERAGENTLOOKUP_APIKEY": "NONE",
     })
 
     live = env.get("USERAGENTLOOKUP_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("USERAGENTLOOKUP_APIKEY"),
         }
         client = UserAgentLookupSDK(merged_opts)
         return {

@@ -78,12 +78,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'USERAGENTLOOKUP_TEST_USER_AGENT_ENTID': {},
     'USERAGENTLOOKUP_TEST_LIVE': 'FALSE',
+    'USERAGENTLOOKUP_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.USERAGENTLOOKUP_TEST_LIVE
 
   if (live) {
     const client = new UserAgentLookupSDK({
+      apikey: env.USERAGENTLOOKUP_APIKEY,
     })
 
     let idmap: any = env['USERAGENTLOOKUP_TEST_USER_AGENT_ENTID']

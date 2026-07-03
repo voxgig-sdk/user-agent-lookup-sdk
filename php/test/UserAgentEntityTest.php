@@ -85,6 +85,7 @@ function user_agent_basic_setup($extra)
         "USERAGENTLOOKUP_TEST_USER_AGENT_ENTID" => $idmap,
         "USERAGENTLOOKUP_TEST_LIVE" => "FALSE",
         "USERAGENTLOOKUP_TEST_EXPLAIN" => "FALSE",
+        "USERAGENTLOOKUP_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -96,6 +97,7 @@ function user_agent_basic_setup($extra)
     if ($env["USERAGENTLOOKUP_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["USERAGENTLOOKUP_APIKEY"],
             ],
             $extra ?? [],
         ]);

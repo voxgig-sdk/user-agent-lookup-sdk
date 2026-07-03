@@ -117,6 +117,7 @@ func user_agentBasicSetup(extra map[string]any) *entityTestSetup {
 		"USERAGENTLOOKUP_TEST_USER_AGENT_ENTID": idmap,
 		"USERAGENTLOOKUP_TEST_LIVE":      "FALSE",
 		"USERAGENTLOOKUP_TEST_EXPLAIN":   "FALSE",
+		"USERAGENTLOOKUP_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["USERAGENTLOOKUP_TEST_USER_AGENT_ENTID"])
@@ -127,6 +128,7 @@ func user_agentBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["USERAGENTLOOKUP_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["USERAGENTLOOKUP_APIKEY"],
 			},
 			extra,
 		})

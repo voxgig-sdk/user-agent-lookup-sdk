@@ -1,23 +1,8 @@
 # UserAgentLookup SDK
 
-Parse a User-Agent string into structured browser, OS, and device data
+User Agent Lookup API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About User Agent Lookup API
-
-[User Agent Lookup](https://www.useragentlookup.com/) is a small public service that parses raw `User-Agent` strings and returns structured information about the requesting browser, operating system, and device.
-
-What you get from the API:
-
-- A single `GET` endpoint that accepts a `ua` query parameter containing the User-Agent string
-- A JSON response with parsed fields describing the client (the maintainers note the output is stable but new fields may be added over time)
-
-Operational notes:
-
-- Base URL: `https://www.useragentlookup.com/api`
-- No API key or auth header is required
-- The service advertises no rate limiting and high uptime, but CORS is disabled, so requests should be issued from a server rather than directly from a browser
 
 ## Try it
 
@@ -51,27 +36,31 @@ gem install user-agent-lookup-sdk
 luarocks install user-agent-lookup-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { UserAgentLookupSDK } from 'user-agent-lookup'
 
-const client = new UserAgentLookupSDK({})
+const client = new UserAgentLookupSDK({
+  apikey: process.env.USER-AGENT-LOOKUP_APIKEY,
+})
 
+// Load useragent data
+const useragent = await client.UserAgent().load({})
+console.log(useragent.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **UserAgent** | A parsed representation of a `User-Agent` header string, retrieved via `GET /user-agent?ua={user-agent-string}`. | `/user-agent` |
+| **UserAgent** |  | `/user-agent` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -111,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from useragentlookup_sdk import UserAgentLookupSDK
 
-client = UserAgentLookupSDK({})
+client = UserAgentLookupSDK({
+    "apikey": os.environ.get("USER-AGENT-LOOKUP_APIKEY"),
+})
 
 
 # Load a specific useragent
-useragent, err = client.UserAgent(None).load(
-    {"id": "example_id"}, None
-)
+useragent, err = client.UserAgent().load({"id": "example_id"})
+print(useragent)
 ```
 
 ### PHP
@@ -128,13 +119,14 @@ useragent, err = client.UserAgent(None).load(
 <?php
 require_once 'useragentlookup_sdk.php';
 
-$client = new UserAgentLookupSDK([]);
+$client = new UserAgentLookupSDK([
+    "apikey" => getenv("USER-AGENT-LOOKUP_APIKEY"),
+]);
 
 
 // Load a specific useragent
-[$useragent, $err] = $client->UserAgent(null)->load(
-    ["id" => "example_id"], null
-);
+[$useragent, $err] = $client->UserAgent()->load(["id" => "example_id"]);
+print_r($useragent);
 ```
 
 ### Golang
@@ -142,8 +134,13 @@ $client = new UserAgentLookupSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/user-agent-lookup-sdk/go"
 
-client := sdk.NewUserAgentLookupSDK(map[string]any{})
+client := sdk.NewUserAgentLookupSDK(map[string]any{
+    "apikey": os.Getenv("USER-AGENT-LOOKUP_APIKEY"),
+})
 
+// Load useragent data
+useragent, err := client.UserAgent(nil).Load(map[string]any{}, nil)
+fmt.Println(useragent)
 ```
 
 ### Ruby
@@ -151,13 +148,14 @@ client := sdk.NewUserAgentLookupSDK(map[string]any{})
 ```ruby
 require_relative "UserAgentLookup_sdk"
 
-client = UserAgentLookupSDK.new({})
+client = UserAgentLookupSDK.new({
+  "apikey" => ENV["USER-AGENT-LOOKUP_APIKEY"],
+})
 
 
 # Load a specific useragent
-useragent, err = client.UserAgent(nil).load(
-  { "id" => "example_id" }, nil
-)
+useragent, err = client.UserAgent().load({ "id" => "example_id" })
+puts useragent
 ```
 
 ### Lua
@@ -165,13 +163,14 @@ useragent, err = client.UserAgent(nil).load(
 ```lua
 local sdk = require("user-agent-lookup_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("USER-AGENT-LOOKUP_APIKEY"),
+})
 
 
 -- Load a specific useragent
-local useragent, err = client:UserAgent(nil):load(
-  { id = "example_id" }, nil
-)
+local useragent, err = client:UserAgent():load({ id = "example_id" })
+print(useragent)
 ```
 
 ## Unit testing in offline mode
@@ -190,25 +189,21 @@ const result = await client.UserAgent().load({ id: 'test01' })
 ### Python
 
 ```python
-client = UserAgentLookupSDK.test(None, None)
-result, err = client.UserAgent(None).load(
-    {"id": "test01"}, None
-)
+client = UserAgentLookupSDK.test()
+result, err = client.UserAgent().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = UserAgentLookupSDK::test(null, null);
-[$result, $err] = $client->UserAgent(null)->load(
-    ["id" => "test01"], null
-);
+$client = UserAgentLookupSDK::test();
+[$result, $err] = $client->UserAgent()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.UserAgent(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -217,19 +212,15 @@ result, err := client.UserAgent(nil).Load(
 ### Ruby
 
 ```ruby
-client = UserAgentLookupSDK.test(nil, nil)
-result, err = client.UserAgent(nil).load(
-  { "id" => "test01" }, nil
-)
+client = UserAgentLookupSDK.test
+result, err = client.UserAgent().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:UserAgent(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:UserAgent():load({ id = "test01" })
 ```
 
 ## How it works
@@ -333,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the User Agent Lookup API
-
-- Upstream: [https://www.useragentlookup.com/](https://www.useragentlookup.com/)
-
-- Free to use for any number of requests
-- No authentication or API key required
-- No published rate limits
-- CORS is not enabled, so calls must be made server-side
 
 ---
 

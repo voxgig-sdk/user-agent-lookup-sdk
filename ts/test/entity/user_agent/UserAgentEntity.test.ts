@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID': idmap,
     'USER_AGENT_LOOKUP_TEST_LIVE': 'FALSE',
     'USER_AGENT_LOOKUP_TEST_EXPLAIN': 'FALSE',
+    'USER_AGENT_LOOKUP_APIKEY': 'NONE',
   })
 
   idmap = env['USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new UserAgentLookupSDK(merge([
       {
+        apikey: env.USER_AGENT_LOOKUP_APIKEY,
       },
       extra
     ]))
