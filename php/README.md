@@ -10,7 +10,7 @@ The PHP SDK for the UserAgentLookup API — an entity-oriented client using PHP 
 
 ## Install
 ```bash
-composer require voxgig/user-agent-lookup-sdk
+composer require voxgig-sdk/user-agent-lookup
 ```
 
 

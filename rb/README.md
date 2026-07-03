@@ -10,13 +10,13 @@ The Ruby SDK for the UserAgentLookup API — an entity-oriented client using idi
 
 ## Install
 ```bash
-gem install user-agent-lookup-sdk
+gem install voxgig-sdk-user-agent-lookup
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "user-agent-lookup-sdk"
+gem "voxgig-sdk-user-agent-lookup"
 ```
 
 Then run:

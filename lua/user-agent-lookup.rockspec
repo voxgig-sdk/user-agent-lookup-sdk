@@ -8,12 +8,14 @@ source = {
   dir = "user-agent-lookup-sdk/lua"
 }
 description = {
-  summary = "UserAgentLookup SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the User Agent Lookup public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/user-agent-lookup-sdk",
+  issues_url = "https://github.com/voxgig-sdk/user-agent-lookup-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "user-agent-lookup" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

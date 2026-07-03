@@ -10,7 +10,7 @@ The Lua SDK for the UserAgentLookup API — an entity-oriented client using Lua 
 
 ## Install
 ```bash
-luarocks install user-agent-lookup-sdk
+luarocks install voxgig-sdk-user-agent-lookup
 ```
 
 If the module is not yet published, add the source directory to

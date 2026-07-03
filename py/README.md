@@ -10,7 +10,7 @@ The Python SDK for the UserAgentLookup API — an entity-oriented client followi
 
 ## Install
 ```bash
-pip install user-agent-lookup-sdk
+pip install voxgig-sdk-user-agent-lookup
 ```
 
 Or install from source:

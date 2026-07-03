@@ -10,7 +10,7 @@ The TypeScript SDK for the UserAgentLookup API — a type-safe, entity-oriented 
 
 ## Install
 ```bash
-npm install user-agent-lookup
+npm install @voxgig-sdk/user-agent-lookup
 ```
 ## Tutorial: your first API call
 
