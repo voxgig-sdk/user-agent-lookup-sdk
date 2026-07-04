@@ -245,6 +245,9 @@ func (sdk *UserAgentLookupSDK) Direct(fetchargs map[string]any) (map[string]any,
 }
 
 
+// UserAgent returns a UserAgent entity bound to this client.
+// Idiomatic usage: client.UserAgent(nil).List(nil, nil) or
+// client.UserAgent(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *UserAgentLookupSDK) UserAgent(data map[string]any) UserAgentLookupEntity {
 	return NewUserAgentEntityFunc(sdk, data)
 }

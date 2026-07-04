@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## UserAgentEntity
 
 ```lua
-local user_agent = client:UserAgent(nil)
+local user_agent = client:user_agent(nil)
 ```
 
 ### Fields
@@ -105,7 +104,7 @@ local user_agent = client:UserAgent(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:UserAgent():load({ id = "user_agent_id" })
+local result, err = client:user_agent():load({ id = "user_agent_id" })
 ```
 
 ### Common Methods

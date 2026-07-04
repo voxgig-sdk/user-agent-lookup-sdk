@@ -49,8 +49,7 @@ class UserAgentEntityTest extends TestCase
         // LOAD
         $user_agent_ref01_ent = $client->UserAgent(null);
         $user_agent_ref01_match_dt0 = [];
-        [$user_agent_ref01_data_dt0_loaded, $err] = $user_agent_ref01_ent->load($user_agent_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $user_agent_ref01_data_dt0_loaded = $user_agent_ref01_ent->load($user_agent_ref01_match_dt0, null);
         $this->assertNotNull($user_agent_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function user_agent_basic_setup($extra)
         "USERAGENTLOOKUP_TEST_USER_AGENT_ENTID" => $idmap,
         "USERAGENTLOOKUP_TEST_LIVE" => "FALSE",
         "USERAGENTLOOKUP_TEST_EXPLAIN" => "FALSE",
-        "USERAGENTLOOKUP_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function user_agent_basic_setup($extra)
     if ($env["USERAGENTLOOKUP_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["USERAGENTLOOKUP_APIKEY"],
             ],
             $extra ?? [],
         ]);

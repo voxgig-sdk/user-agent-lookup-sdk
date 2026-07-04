@@ -9,12 +9,9 @@ The Lua SDK for the UserAgentLookup API — an entity-oriented client using Lua 
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-user-agent-lookup
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("user-agent-lookup_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("USER-AGENT-LOOKUP_APIKEY"),
-})
+local client = sdk.new()
 ```
 
-### 3. Load a useragent
+### 3. Load an useragent
 
 ```lua
-local result, err = client:UserAgent():load({ id = "example_id" })
+local result, err = client:useragent():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:UserAgentLookup():load({ id = "test01" })
+local result, err = client:useragent():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -120,8 +115,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-USER-AGENT-LOOKUP_TEST_LIVE=TRUE
-USER-AGENT-LOOKUP_APIKEY=<your-key>
+USER_AGENT_LOOKUP_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -226,7 +219,7 @@ API path: `/user-agent`
 
 ### UserAgent
 
-Create an instance: `const user_agent = client.UserAgent()`
+Create an instance: `const user_agent = client.user_agent`
 
 #### Operations
 
@@ -248,7 +241,7 @@ Create an instance: `const user_agent = client.UserAgent()`
 #### Example: Load
 
 ```ts
-const user_agent = await client.UserAgent().load({ id: 'user_agent_id' })
+const user_agent = await client.user_agent.load({ id: 'user_agent_id' })
 ```
 
 
@@ -323,11 +316,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local useragent = client:useragent()
+useragent:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- useragent:data_get() now returns the loaded useragent data
+-- useragent:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

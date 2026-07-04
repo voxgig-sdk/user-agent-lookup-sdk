@@ -42,8 +42,7 @@ class UserAgentEntityTest < Minitest::Test
     # LOAD
     user_agent_ref01_ent = client.UserAgent(nil)
     user_agent_ref01_match_dt0 = {}
-    user_agent_ref01_data_dt0_loaded, err = user_agent_ref01_ent.load(user_agent_ref01_match_dt0, nil)
-    assert_nil err
+    user_agent_ref01_data_dt0_loaded = user_agent_ref01_ent.load(user_agent_ref01_match_dt0, nil)
     assert !user_agent_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def user_agent_basic_setup(extra)
     "USERAGENTLOOKUP_TEST_USER_AGENT_ENTID" => idmap,
     "USERAGENTLOOKUP_TEST_LIVE" => "FALSE",
     "USERAGENTLOOKUP_TEST_EXPLAIN" => "FALSE",
-    "USERAGENTLOOKUP_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def user_agent_basic_setup(extra)
   if env["USERAGENTLOOKUP_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["USERAGENTLOOKUP_APIKEY"],
       },
       extra || {},
     ])

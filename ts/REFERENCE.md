@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `UserAgentLookupSDK.test()`.
 ## UserAgentEntity
 
 ```ts
-const user_agent = client.UserAgent()
+const user_agent = client.user_agent
 ```
 
 ### Fields
@@ -131,7 +130,7 @@ const user_agent = client.UserAgent()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.UserAgent().load({ id: 'user_agent_id' })
+const result = await client.user_agent.load({ id: 'user_agent_id' })
 ```
 
 ### Common Methods

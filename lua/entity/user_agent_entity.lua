@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch UserAgentLoadMatch
+---@param ctrl? table
+---@return UserAgent
+---@return string? err
 function UserAgentEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

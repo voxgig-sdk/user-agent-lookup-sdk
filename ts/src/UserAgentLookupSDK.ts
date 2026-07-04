@@ -2,6 +2,8 @@
 
 import { UserAgentEntity } from './entity/UserAgentEntity'
 
+export type * from './UserAgentLookupTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class UserAgentLookupSDK {
 
 
 
+  _user_agent?: UserAgentEntity
+
+  // Idiomatic facade: `client.user_agent.list()` / `client.user_agent.load({ id })`.
+  get user_agent(): UserAgentEntity {
+    return (this._user_agent ??= new UserAgentEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.user_agent` instead. */
   UserAgent(data?: any) {
     const self = this
     return new UserAgentEntity(self,data)

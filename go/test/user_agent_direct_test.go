@@ -105,14 +105,12 @@ func user_agentDirectSetup(mockres any) *user_agentDirectSetupResult {
 	env := envOverride(map[string]any{
 		"USERAGENTLOOKUP_TEST_USER_AGENT_ENTID": map[string]any{},
 		"USERAGENTLOOKUP_TEST_LIVE":    "FALSE",
-		"USERAGENTLOOKUP_APIKEY":       "NONE",
 	})
 
 	live := env["USERAGENTLOOKUP_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["USERAGENTLOOKUP_APIKEY"],
 		}
 		client := sdk.NewUserAgentLookupSDK(mergedOpts)
 

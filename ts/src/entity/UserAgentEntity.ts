@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  UserAgent,
+  UserAgentLoadMatch,
+} from '../UserAgentLookupTypes'
 
 // TODO: needs Entity superclass
-class UserAgentEntity extends UserAgentLookupEntityBase {
+class UserAgentEntity extends UserAgentLookupEntityBase<UserAgent> {
 
   constructor(client: UserAgentLookupSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class UserAgentEntity extends UserAgentLookupEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: UserAgentLoadMatch, ctrl?: Control): Promise<UserAgent> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class UserAgentEntity extends UserAgentLookupEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<UserAgent> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
