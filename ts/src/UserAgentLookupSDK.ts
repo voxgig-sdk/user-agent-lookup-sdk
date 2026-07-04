@@ -204,14 +204,7 @@ class UserAgentLookupSDK {
 
 
 
-  _user_agent?: UserAgentEntity
-
-  // Idiomatic facade: `client.user_agent.list()` / `client.user_agent.load({ id })`.
-  get user_agent(): UserAgentEntity {
-    return (this._user_agent ??= new UserAgentEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.user_agent` instead. */
+  // Entity access: `client.UserAgent().list()` / `client.UserAgent().load({ id })`.
   UserAgent(data?: any) {
     const self = this
     return new UserAgentEntity(self,data)

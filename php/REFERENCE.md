@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## UserAgentEntity
 
 ```php
-$user_agent = $client->user_agent();
+$user_agent = $client->UserAgent();
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ $user_agent = $client->user_agent();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->user_agent()->load(["id" => "user_agent_id"]);
+$result = $client->UserAgent()->load(["id" => "user_agent_id"]);
 ```
 
 ### Common Methods

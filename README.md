@@ -26,9 +26,9 @@ import { UserAgentLookupSDK } from '@voxgig-sdk/user-agent-lookup'
 
 const client = new UserAgentLookupSDK()
 
-// Load useragent data
-const useragent = await client.useragent.load({})
-console.log(useragent.data)
+// Load useragent data (returns a UserAgent)
+const useragent = await client.UserAgent().load()
+console.log(useragent)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from useragentlookup_sdk import UserAgentLookupSDK
 client = UserAgentLookupSDK()
 
 
-# Load a specific useragent
-useragent = client.useragent.load({"id": "example_id"})
+# Load a specific useragent (returns the record, raises on error)
+useragent = client.UserAgent().load({"id": "example_id"})
 print(useragent)
 ```
 
@@ -98,8 +98,8 @@ require_once 'useragentlookup_sdk.php';
 $client = new UserAgentLookupSDK();
 
 
-// Load a specific useragent
-$useragent = $client->useragent()->load(["id" => "example_id"]);
+// Load a specific useragent (returns the bare record; throws on error)
+$useragent = $client->UserAgent()->load(["id" => "example_id"]);
 print_r($useragent);
 ```
 
@@ -123,8 +123,8 @@ require_relative "UserAgentLookup_sdk"
 client = UserAgentLookupSDK.new
 
 
-# Load a specific useragent
-useragent = client.useragent.load({ "id" => "example_id" })
+# Load a specific useragent (returns the bare record; raises on error)
+useragent = client.UserAgent.load({ "id" => "example_id" })
 puts useragent
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific useragent
-local useragent, err = client:useragent():load({ id = "example_id" })
+local useragent, err = client:UserAgent():load({ id = "example_id" })
 print(useragent)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = UserAgentLookupSDK.test()
-const result = await client.useragent.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const useragent = await client.UserAgent().load({ id: 'test01' })
+// useragent is a bare UserAgent populated with mock data
+console.log(useragent)
 ```
 
 ### Python
 
 ```python
 client = UserAgentLookupSDK.test()
-result = client.useragent.load({"id": "test01"})
+useragent = client.UserAgent().load({"id": "test01"})
+print(useragent)
 ```
 
 ### PHP
 
 ```php
-$client = UserAgentLookupSDK::test();
-$result = $client->useragent()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = UserAgentLookupSDK::test([
+    "entity" => ["useragent" => ["test01" => ["id" => "test01"]]],
+]);
+$useragent = $client->UserAgent()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.UserAgent(nil).Load(
 ### Ruby
 
 ```ruby
-client = UserAgentLookupSDK.test
-result = client.useragent.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = UserAgentLookupSDK.test({
+  "entity" => { "useragent" => { "test01" => { "id" => "test01" } } },
+})
+useragent = client.UserAgent.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:useragent():load({ id = "test01" })
+local result, err = client:UserAgent():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

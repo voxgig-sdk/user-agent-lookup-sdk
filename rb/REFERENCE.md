@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## UserAgentEntity
 
 ```ruby
-user_agent = client.user_agent
+user_agent = client.UserAgent
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ user_agent = client.user_agent
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.user_agent.load({ "id" => "user_agent_id" })
+result = client.UserAgent.load({ "id" => "user_agent_id" })
 ```
 
 ### Common Methods

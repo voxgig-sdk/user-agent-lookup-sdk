@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## UserAgentEntity
 
 ```lua
-local user_agent = client:user_agent(nil)
+local user_agent = client:UserAgent(nil)
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ local user_agent = client:user_agent(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:user_agent():load({ id = "user_agent_id" })
+local result, err = client:UserAgent():load({ id = "user_agent_id" })
 ```
 
 ### Common Methods

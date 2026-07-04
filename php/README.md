@@ -33,9 +33,10 @@ $client = new UserAgentLookupSDK();
 
 ```php
 try {
-    $result = $client->useragent()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare UserAgent record (throws on error).
+    $useragent = $client->UserAgent()->load(["id" => "example_id"]);
+    print_r($useragent);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = UserAgentLookupSDK::test();
+$client = UserAgentLookupSDK::test([
+    "entity" => ["useragent" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->useragent()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$useragent = $client->UserAgent()->load(["id" => "test01"]);
+print_r($useragent);
 ```
 
 ### Use a custom fetch function
@@ -166,7 +171,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `UserAgent` | `($data): UserAgentEntity` | Create a UserAgent entity instance. |
+| `UserAgent` | `($data): UserAgentEntity` | Create an UserAgent entity instance. |
 
 ### Entity interface
 
@@ -228,7 +233,7 @@ API path: `/user-agent`
 
 ### UserAgent
 
-Create an instance: `const user_agent = client.user_agent`
+Create an instance: `$user_agent = $client->UserAgent();`
 
 #### Operations
 
@@ -249,8 +254,9 @@ Create an instance: `const user_agent = client.user_agent`
 
 #### Example: Load
 
-```ts
-const user_agent = await client.user_agent.load({ id: 'user_agent_id' })
+```php
+// load() returns the bare UserAgent record (throws on error).
+$user_agent = $client->UserAgent()->load(["id" => "user_agent_id"]);
 ```
 
 
@@ -325,7 +331,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$useragent = $client->useragent();
+$useragent = $client->UserAgent();
 $useragent->load(["id" => "example_id"]);
 
 // $useragent->dataGet() now returns the loaded useragent data

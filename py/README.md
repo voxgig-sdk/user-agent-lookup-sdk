@@ -33,10 +33,12 @@ client = UserAgentLookupSDK()
 
 ### 3. Load an useragent
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.useragent.load({"id": "example_id"})
-    print(result)
+    useragent = client.UserAgent().load({"id": "example_id"})
+    print(useragent)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = UserAgentLookupSDK.test()
 
-result = client.useragent.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+useragent = client.UserAgent().load({"id": "test01"})
+# useragent contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -161,7 +164,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `UserAgent` | `(data) -> UserAgentEntity` | Create a UserAgent entity instance. |
+| `UserAgent` | `(data) -> UserAgentEntity` | Create an UserAgent entity instance. |
 
 ### Entity interface
 
@@ -223,7 +226,7 @@ API path: `/user-agent`
 
 ### UserAgent
 
-Create an instance: `const user_agent = client.user_agent`
+Create an instance: `user_agent = client.UserAgent()`
 
 #### Operations
 
@@ -244,8 +247,8 @@ Create an instance: `const user_agent = client.user_agent`
 
 #### Example: Load
 
-```ts
-const user_agent = await client.user_agent.load({ id: 'user_agent_id' })
+```python
+user_agent = client.UserAgent().load({"id": "user_agent_id"})
 ```
 
 
@@ -319,7 +322,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-useragent = client.useragent
+useragent = client.UserAgent()
 useragent.load({"id": "example_id"})
 
 # useragent.data_get() now returns the loaded useragent data

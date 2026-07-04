@@ -32,8 +32,9 @@ client = UserAgentLookupSDK.new
 
 ```ruby
 begin
-  result = client.useragent.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare UserAgent record (raises on error).
+  useragent = client.UserAgent.load({ "id" => "example_id" })
+  puts useragent
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = UserAgentLookupSDK.test
+client = UserAgentLookupSDK.test({
+  "entity" => { "useragent" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.useragent.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+useragent = client.UserAgent.load({ "id" => "test01" })
+puts useragent
 ```
 
 ### Use a custom fetch function
@@ -162,7 +167,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `UserAgent` | `(data) -> UserAgentEntity` | Create a UserAgent entity instance. |
+| `UserAgent` | `(data) -> UserAgentEntity` | Create an UserAgent entity instance. |
 
 ### Entity interface
 
@@ -223,7 +228,7 @@ API path: `/user-agent`
 
 ### UserAgent
 
-Create an instance: `const user_agent = client.user_agent`
+Create an instance: `user_agent = client.UserAgent`
 
 #### Operations
 
@@ -244,8 +249,9 @@ Create an instance: `const user_agent = client.user_agent`
 
 #### Example: Load
 
-```ts
-const user_agent = await client.user_agent.load({ id: 'user_agent_id' })
+```ruby
+# load returns the bare UserAgent record (raises on error).
+user_agent = client.UserAgent.load({ "id" => "user_agent_id" })
 ```
 
 
@@ -320,7 +326,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-useragent = client.useragent
+useragent = client.UserAgent
 useragent.load({ "id" => "example_id" })
 
 # useragent.data_get now returns the loaded useragent data

@@ -220,25 +220,15 @@ class UserAgentLookupSDK:
         }
 
 
-    @property
-    def user_agent(self):
-        """Idiomatic facade: client.user_agent.list() / client.user_agent.load({"id": ...})."""
-        from entity.user_agent_entity import UserAgentEntity
-        cached = getattr(self, "_user_agent", None)
-        if cached is None:
-            cached = UserAgentEntity(self, None)
-            self._user_agent = cached
-        return cached
-
-    def UserAgent(self, data=None):
-        # Deprecated: use client.user_agent instead.
+    def UserAgent(self, data=None) -> "UserAgentEntity":
+        """Entity factory: client.UserAgent().list({}) / client.UserAgent().load({"id": ...})."""
         from entity.user_agent_entity import UserAgentEntity
         return UserAgentEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "UserAgentLookupSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class UserAgentLookupSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.user_agent_entity import UserAgentEntity

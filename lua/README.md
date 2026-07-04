@@ -34,9 +34,9 @@ local client = sdk.new()
 ### 3. Load an useragent
 
 ```lua
-local result, err = client:useragent():load({ id = "example_id" })
+local useragent, err = client:UserAgent():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(useragent)
 ```
 
 
@@ -82,8 +82,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:useragent():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:UserAgent():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -161,7 +161,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> table, err` | Build an HTTP request definition without sending. |
 | `direct` | `(fetchargs) -> table, err` | Build and send an HTTP request. |
-| `UserAgent` | `(data) -> UserAgentEntity` | Create a UserAgent entity instance. |
+| `UserAgent` | `(data) -> UserAgentEntity` | Create an UserAgent entity instance. |
 
 ### Entity interface
 
@@ -183,17 +183,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local user_agent, err = client:UserAgent():load({ id = "example_id" })
+    if err then error(err) end
+    -- user_agent is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -219,7 +224,7 @@ API path: `/user-agent`
 
 ### UserAgent
 
-Create an instance: `const user_agent = client.user_agent`
+Create an instance: `local user_agent = client:UserAgent(nil)`
 
 #### Operations
 
@@ -240,8 +245,8 @@ Create an instance: `const user_agent = client.user_agent`
 
 #### Example: Load
 
-```ts
-const user_agent = await client.user_agent.load({ id: 'user_agent_id' })
+```lua
+local user_agent, err = client:UserAgent():load({ id = "user_agent_id" })
 ```
 
 
@@ -316,7 +321,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local useragent = client:useragent()
+local useragent = client:UserAgent()
 useragent:load({ id = "example_id" })
 
 -- useragent:data_get() now returns the loaded useragent data

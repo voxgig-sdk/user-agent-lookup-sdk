@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:user_agent():list() / client:user_agent():load({ id = ... })
-function UserAgentLookupSDK:user_agent(data)
+-- Idiomatic facade: client:UserAgent():list() / client:UserAgent():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function UserAgentLookupSDK:UserAgent(data)
   local EntityMod = require("entity.user_agent_entity")
   if data == nil then
     if self._user_agent == nil then
@@ -253,12 +254,6 @@ function UserAgentLookupSDK:user_agent(data)
     end
     return self._user_agent
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:user_agent() instead.
-function UserAgentLookupSDK:UserAgent(data)
-  local EntityMod = require("entity.user_agent_entity")
   return EntityMod.new(self, data)
 end
 

@@ -233,10 +233,10 @@ class UserAgentLookupSDK
 
     private $_user_agent = null;
 
-    // Idiomatic facade: $client->user_agent()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias UserAgent() (PHP method
-    // names are case-insensitive).
-    public function user_agent($data = null)
+    // Canonical facade: $client->UserAgent()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->user_agent()
+    // resolves here too.
+    public function UserAgent($data = null)
     {
         require_once __DIR__ . '/entity/user_agent_entity.php';
         if ($data === null) {

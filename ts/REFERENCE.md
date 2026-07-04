@@ -109,7 +109,7 @@ Alias for `UserAgentLookupSDK.test()`.
 ## UserAgentEntity
 
 ```ts
-const user_agent = client.user_agent
+const user_agent = client.UserAgent()
 ```
 
 ### Fields
@@ -130,7 +130,7 @@ const user_agent = client.user_agent
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.user_agent.load({ id: 'user_agent_id' })
+const result = await client.UserAgent().load({ id: 'user_agent_id' })
 ```
 
 ### Common Methods

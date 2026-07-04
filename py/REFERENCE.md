@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## UserAgentEntity
 
 ```python
-user_agent = client.user_agent
+user_agent = client.UserAgent()
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ user_agent = client.user_agent
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.user_agent.load({"id": "user_agent_id"})
+result = client.UserAgent().load({"id": "user_agent_id"})
 ```
 
 ### Common Methods

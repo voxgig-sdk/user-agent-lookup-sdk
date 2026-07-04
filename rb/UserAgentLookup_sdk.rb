@@ -208,13 +208,7 @@ class UserAgentLookupSDK
   end
 
 
-  # Idiomatic facade: client.user_agent.list / client.user_agent.load({ "id" => ... })
-  def user_agent
-    require_relative 'entity/user_agent_entity'
-    @user_agent ||= UserAgentEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.user_agent instead.
+  # Canonical facade: client.UserAgent.list / client.UserAgent.load({ "id" => ... })
   def UserAgent(data = nil)
     require_relative 'entity/user_agent_entity'
     UserAgentEntity.new(self, data)
