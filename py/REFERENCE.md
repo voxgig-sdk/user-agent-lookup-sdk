@@ -8,7 +8,7 @@ Complete API reference for the UserAgentLookup Python SDK.
 ### Constructor
 
 ```python
-from user-agent-lookup_sdk import UserAgentLookupSDK
+from useragentlookup_sdk import UserAgentLookupSDK
 
 client = UserAgentLookupSDK(options)
 ```
@@ -87,12 +87,12 @@ user_agent = client.UserAgent()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `browser` | ``$STRING`` | No |  |
-| `browser_version` | ``$STRING`` | No |  |
-| `device` | ``$STRING`` | No |  |
-| `os` | ``$STRING`` | No |  |
-| `os_version` | ``$STRING`` | No |  |
-| `platform` | ``$STRING`` | No |  |
+| `browser` | `str` | No |  |
+| `browser_version` | `str` | No |  |
+| `device` | `str` | No |  |
+| `os` | `str` | No |  |
+| `os_version` | `str` | No |  |
+| `platform` | `str` | No |  |
 
 ### Operations
 
@@ -101,7 +101,7 @@ user_agent = client.UserAgent()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.UserAgent().load({"id": "user_agent_id"})
+result = client.UserAgent().load()
 ```
 
 ### Common Methods

@@ -221,7 +221,7 @@ class UserAgentLookupSDK:
 
 
     def UserAgent(self, data=None) -> "UserAgentEntity":
-        """Entity factory: client.UserAgent().list({}) / client.UserAgent().load({"id": ...})."""
+        """Entity factory: client.UserAgent().list() / client.UserAgent().load({"id": ...})."""
         from entity.user_agent_entity import UserAgentEntity
         return UserAgentEntity(self, data)
 

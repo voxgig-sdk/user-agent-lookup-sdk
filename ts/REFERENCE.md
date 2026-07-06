@@ -116,12 +116,12 @@ const user_agent = client.UserAgent()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `browser` | ``$STRING`` | No |  |
-| `browser_version` | ``$STRING`` | No |  |
-| `device` | ``$STRING`` | No |  |
-| `os` | ``$STRING`` | No |  |
-| `os_version` | ``$STRING`` | No |  |
-| `platform` | ``$STRING`` | No |  |
+| `browser` | `string` | No |  |
+| `browser_version` | `string` | No |  |
+| `device` | `string` | No |  |
+| `os` | `string` | No |  |
+| `os_version` | `string` | No |  |
+| `platform` | `string` | No |  |
 
 ### Operations
 
@@ -130,7 +130,7 @@ const user_agent = client.UserAgent()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.UserAgent().load({ id: 'user_agent_id' })
+const result = await client.UserAgent().load()
 ```
 
 ### Common Methods

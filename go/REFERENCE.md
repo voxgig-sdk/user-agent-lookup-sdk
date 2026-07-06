@@ -97,12 +97,12 @@ user_agent := client.UserAgent(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `browser` | ``$STRING`` | No |  |
-| `browser_version` | ``$STRING`` | No |  |
-| `device` | ``$STRING`` | No |  |
-| `os` | ``$STRING`` | No |  |
-| `os_version` | ``$STRING`` | No |  |
-| `platform` | ``$STRING`` | No |  |
+| `browser` | `string` | No |  |
+| `browser_version` | `string` | No |  |
+| `device` | `string` | No |  |
+| `os` | `string` | No |  |
+| `os_version` | `string` | No |  |
+| `platform` | `string` | No |  |
 
 ### Operations
 
@@ -111,7 +111,7 @@ user_agent := client.UserAgent(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.UserAgent(nil).Load(map[string]any{"id": "user_agent_id"}, nil)
+result, err := client.UserAgent(nil).Load(nil, nil)
 ```
 
 ### Common Methods

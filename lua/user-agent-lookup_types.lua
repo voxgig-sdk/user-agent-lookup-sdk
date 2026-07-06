@@ -15,6 +15,12 @@
 ---@field platform? string
 
 ---@class UserAgentLoadMatch
+---@field browser? string
+---@field browser_version? string
+---@field device? string
+---@field os? string
+---@field os_version? string
+---@field platform? string
 
 local M = {}
 

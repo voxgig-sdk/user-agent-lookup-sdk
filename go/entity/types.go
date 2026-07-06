@@ -18,8 +18,7 @@ type UserAgent struct {
 	Platform *string `json:"platform,omitempty"`
 }
 
-// UserAgentLoadMatch mirrors the user_agent fields as an all-optional match
-// filter (Go analog of Partial<UserAgent>).
+// UserAgentLoadMatch is the typed request payload for UserAgent.LoadTyped.
 type UserAgentLoadMatch struct {
 	Browser *string `json:"browser,omitempty"`
 	BrowserVersion *string `json:"browser_version,omitempty"`

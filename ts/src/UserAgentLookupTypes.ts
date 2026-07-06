@@ -14,5 +14,12 @@ export interface UserAgent {
   platform?: string
 }
 
-export type UserAgentLoadMatch = Partial<UserAgent>
+export interface UserAgentLoadMatch {
+  browser?: string
+  browser_version?: string
+  device?: string
+  os?: string
+  os_version?: string
+  platform?: string
+}
 

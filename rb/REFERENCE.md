@@ -8,7 +8,7 @@ Complete API reference for the UserAgentLookup Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'user-agent-lookup_sdk'
+require_relative 'UserAgentLookup_sdk'
 
 client = UserAgentLookupSDK.new(options)
 ```
@@ -93,12 +93,12 @@ user_agent = client.UserAgent
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `browser` | ``$STRING`` | No |  |
-| `browser_version` | ``$STRING`` | No |  |
-| `device` | ``$STRING`` | No |  |
-| `os` | ``$STRING`` | No |  |
-| `os_version` | ``$STRING`` | No |  |
-| `platform` | ``$STRING`` | No |  |
+| `browser` | `String` | No |  |
+| `browser_version` | `String` | No |  |
+| `device` | `String` | No |  |
+| `os` | `String` | No |  |
+| `os_version` | `String` | No |  |
+| `platform` | `String` | No |  |
 
 ### Operations
 
@@ -107,7 +107,7 @@ user_agent = client.UserAgent
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.UserAgent.load({ "id" => "user_agent_id" })
+result = client.UserAgent.load()
 ```
 
 ### Common Methods

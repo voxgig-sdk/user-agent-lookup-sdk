@@ -90,12 +90,12 @@ local user_agent = client:UserAgent(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `browser` | ``$STRING`` | No |  |
-| `browser_version` | ``$STRING`` | No |  |
-| `device` | ``$STRING`` | No |  |
-| `os` | ``$STRING`` | No |  |
-| `os_version` | ``$STRING`` | No |  |
-| `platform` | ``$STRING`` | No |  |
+| `browser` | `string` | No |  |
+| `browser_version` | `string` | No |  |
+| `device` | `string` | No |  |
+| `os` | `string` | No |  |
+| `os_version` | `string` | No |  |
+| `platform` | `string` | No |  |
 
 ### Operations
 
@@ -104,7 +104,7 @@ local user_agent = client:UserAgent(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:UserAgent():load({ id = "user_agent_id" })
+local result, err = client:UserAgent():load()
 ```
 
 ### Common Methods

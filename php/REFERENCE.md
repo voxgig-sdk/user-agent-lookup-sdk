@@ -8,7 +8,7 @@ Complete API reference for the UserAgentLookup PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/user-agent-lookup_sdk.php';
+require_once __DIR__ . '/useragentlookup_sdk.php';
 
 $client = new UserAgentLookupSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = UserAgentLookupSDK::test();
 
 Create a new `UserAgentEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): UserAgentLookupUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,12 +92,12 @@ $user_agent = $client->UserAgent();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `browser` | ``$STRING`` | No |  |
-| `browser_version` | ``$STRING`` | No |  |
-| `device` | ``$STRING`` | No |  |
-| `os` | ``$STRING`` | No |  |
-| `os_version` | ``$STRING`` | No |  |
-| `platform` | ``$STRING`` | No |  |
+| `browser` | `string` | No |  |
+| `browser_version` | `string` | No |  |
+| `device` | `string` | No |  |
+| `os` | `string` | No |  |
+| `os_version` | `string` | No |  |
+| `platform` | `string` | No |  |
 
 ### Operations
 
@@ -106,24 +106,24 @@ $user_agent = $client->UserAgent();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->UserAgent()->load(["id" => "user_agent_id"]);
+$result = $client->UserAgent()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -132,7 +132,7 @@ Set the entity match criteria.
 Create a new `UserAgentEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

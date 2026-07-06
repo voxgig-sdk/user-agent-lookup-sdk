@@ -37,7 +37,7 @@ UserAgent = Struct.new(
   keyword_init: true
 )
 
-# Match filter for UserAgent#load (any subset of UserAgent fields).
+# Request payload for UserAgent#load.
 #
 # @!attribute [rw] browser
 #   @return [String, nil]

@@ -23,7 +23,7 @@ class UserAgent
     public ?string $platform = null;
 }
 
-/** Match filter for UserAgent#load (any subset of UserAgent fields). */
+/** Request payload for UserAgent#load. */
 class UserAgentLoadMatch
 {
     public ?string $browser = null;
