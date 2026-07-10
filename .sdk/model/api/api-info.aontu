@@ -19,10 +19,10 @@ main: {
           url: "https://www.useragentlookup.com/api"
         }
       ]
+      summary: "This API allows users to parse and retrieve information about user agents for free."
       termsOfService: "https://www.useragentlookup.com/"
       title: "User Agent Lookup API"
       version: "1.0.0"
+      website: "https://www.useragentlookup.com/"
     }
   }
-}
-

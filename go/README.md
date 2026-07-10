@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // Load a single useragent — the value is the loaded record.
-    useragent, err := client.UserAgent(nil).Load(nil, nil)
+    // Load a single userAgent — the value is the loaded record.
+    userAgent, err := client.UserAgent(nil).Load(nil, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(useragent)
+    fmt.Println(userAgent)
 }
 ```
 
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-useragent, err := client.UserAgent(nil).Load(
+userAgent, err := client.UserAgent(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(useragent) // the returned mock data
+fmt.Println(userAgent) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -245,9 +245,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    useragent, err := client.UserAgent(nil).Load(nil, nil)
+    userAgent, err := client.UserAgent(nil).Load(nil, nil)
     if err != nil { /* handle */ }
-    // useragent is the returned record
+    // userAgent is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -276,7 +276,7 @@ API path: `/user-agent`
 
 ### UserAgent
 
-Create an instance: `user_agent := client.UserAgent(nil)`
+Create an instance: `userAgent := client.UserAgent(nil)`
 
 #### Operations
 
@@ -298,11 +298,11 @@ Create an instance: `user_agent := client.UserAgent(nil)`
 #### Example: Load
 
 ```go
-user_agent, err := client.UserAgent(nil).Load(nil, nil)
+userAgent, err := client.UserAgent(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(user_agent) // the loaded record
+fmt.Println(userAgent) // the loaded record
 ```
 
 

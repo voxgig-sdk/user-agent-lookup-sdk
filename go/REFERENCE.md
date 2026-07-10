@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## UserAgentEntity
 
 ```go
-user_agent := client.UserAgent(nil)
+userAgent := client.UserAgent(nil)
+fmt.Println(userAgent.GetName()) // "user_agent"
 ```
 
 ### Fields
@@ -112,6 +113,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.UserAgent(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
