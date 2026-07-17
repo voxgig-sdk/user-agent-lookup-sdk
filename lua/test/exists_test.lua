@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- UserAgentLookup SDK exists test
 
 local sdk = require("user-agent-lookup_sdk")
 
