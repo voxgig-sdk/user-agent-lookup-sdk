@@ -35,7 +35,7 @@ $client = new UserAgentLookupSDK();
 
 ```php
 try {
-    // load() returns the bare UserAgent record (throws on error).
+    // load() returns the ENTITY — call data_get() for the UserAgent record (throws on error).
     $useragent = $client->UserAgent()->load();
     print_r($useragent);
 } catch (\Throwable $err) {
@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = UserAgentLookupSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $useragent = $client->UserAgent()->load();
 print_r($useragent);
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -245,10 +246,10 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `browser` |  |
-| `browser_version` |  |
+| `browserVersion` |  |
 | `device` |  |
 | `os` |  |
-| `os_version` |  |
+| `osVersion` |  |
 | `platform` |  |
 
 Operations: Load.
@@ -275,16 +276,16 @@ Create an instance: `$user_agent = $client->UserAgent();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `browser` | `string` |  |
-| `browser_version` | `string` |  |
+| `browserVersion` | `string` |  |
 | `device` | `string` |  |
 | `os` | `string` |  |
-| `os_version` | `string` |  |
+| `osVersion` | `string` |  |
 | `platform` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare UserAgent record (throws on error).
+// load() returns the ENTITY — call data_get() for the UserAgent record (throws on error).
 $user_agent = $client->UserAgent()->load();
 ```
 

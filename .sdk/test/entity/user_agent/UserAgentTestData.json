@@ -3,28 +3,28 @@
     "user_agent": {
       "USER_AGENT00": {
         "browser": "s3c",
-        "browser_version": "s3d",
+        "browserVersion": "s3d",
         "device": "s3e",
         "os": "s3f",
-        "os_version": "s40",
+        "osVersion": "s40",
         "platform": "s41",
         "id": "USER_AGENT00"
       },
       "USER_AGENT01": {
         "browser": "s78",
-        "browser_version": "s79",
+        "browserVersion": "s79",
         "device": "s7a",
         "os": "s7b",
-        "os_version": "s7c",
+        "osVersion": "s7c",
         "platform": "s7d",
         "id": "USER_AGENT01"
       },
       "USER_AGENT02": {
         "browser": "sb4",
-        "browser_version": "sb5",
+        "browserVersion": "sb5",
         "device": "sb6",
         "os": "sb7",
-        "os_version": "sb8",
+        "osVersion": "sb8",
         "platform": "sb9",
         "id": "USER_AGENT02"
       }
@@ -34,10 +34,10 @@
     "user_agent": {
       "user_agent_ref01": {
         "browser": "sf0",
-        "browser_version": "sf1",
+        "browserVersion": "sf1",
         "device": "sf2",
         "os": "sf3",
-        "os_version": "sf4",
+        "osVersion": "sf4",
         "platform": "sf5"
       }
     }

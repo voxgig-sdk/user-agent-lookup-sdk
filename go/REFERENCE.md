@@ -99,10 +99,10 @@ fmt.Println(userAgent.GetName()) // "user_agent"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `browser` | `string` | No |  |
-| `browser_version` | `string` | No |  |
+| `browserVersion` | `string` | No |  |
 | `device` | `string` | No |  |
 | `os` | `string` | No |  |
-| `os_version` | `string` | No |  |
+| `osVersion` | `string` | No |  |
 | `platform` | `string` | No |  |
 
 ### Operations

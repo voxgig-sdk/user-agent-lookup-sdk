@@ -26,8 +26,8 @@ import {
 describe('UserAgentEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when USERAGENTLOOKUP_TEST_LIVE=TRUE.
-  afterEach(liveDelay('USERAGENTLOOKUP_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when USER_AGENT_LOOKUP_TEST_LIVE=TRUE.
+  afterEach(liveDelay('USER_AGENT_LOOKUP_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = UserAgentLookupSDK.test()
@@ -62,7 +62,7 @@ describe('UserAgentEntity', async () => {
     // LOAD
     const user_agent_ref01_ent = client.UserAgent()
     const user_agent_ref01_match_dt0: any = {}
-    const user_agent_ref01_data_dt0 = await user_agent_ref01_ent.load(user_agent_ref01_match_dt0)
+    const user_agent_ref01_data_dt0 = (await user_agent_ref01_ent.load(user_agent_ref01_match_dt0)).data()
     assert(null != user_agent_ref01_data_dt0)
 
 

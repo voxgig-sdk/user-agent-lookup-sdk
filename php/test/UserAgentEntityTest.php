@@ -33,7 +33,7 @@ class UserAgentEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set USERAGENTLOOKUP_TEST_USER_AGENT_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -77,22 +77,22 @@ function user_agent_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("USERAGENTLOOKUP_TEST_USER_AGENT_ENTID");
+    $entid_env_raw = getenv("USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "USERAGENTLOOKUP_TEST_USER_AGENT_ENTID" => $idmap,
-        "USERAGENTLOOKUP_TEST_LIVE" => "FALSE",
-        "USERAGENTLOOKUP_TEST_EXPLAIN" => "FALSE",
+        "USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID" => $idmap,
+        "USER_AGENT_LOOKUP_TEST_LIVE" => "FALSE",
+        "USER_AGENT_LOOKUP_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["USERAGENTLOOKUP_TEST_USER_AGENT_ENTID"]);
+        $env["USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["USERAGENTLOOKUP_TEST_LIVE"] === "TRUE") {
+    if ($env["USER_AGENT_LOOKUP_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -101,13 +101,13 @@ function user_agent_basic_setup($extra)
         $client = new UserAgentLookupSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["USERAGENTLOOKUP_TEST_LIVE"] === "TRUE";
+    $live = $env["USER_AGENT_LOOKUP_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["USERAGENTLOOKUP_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["USER_AGENT_LOOKUP_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

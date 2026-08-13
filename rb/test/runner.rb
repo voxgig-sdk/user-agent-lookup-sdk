@@ -23,8 +23,8 @@ module UserAgentLookupTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("USERAGENTLOOKUP_TEST_LIVE")
-    override = getenv("USERAGENTLOOKUP_TEST_OVERRIDE")
+    live = getenv("USER_AGENT_LOOKUP_TEST_LIVE")
+    override = getenv("USER_AGENT_LOOKUP_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module UserAgentLookupTestRunner
       end
     end
 
-    explain = getenv("USERAGENTLOOKUP_TEST_EXPLAIN")
-    m["USERAGENTLOOKUP_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("USER_AGENT_LOOKUP_TEST_EXPLAIN")
+    m["USER_AGENT_LOOKUP_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

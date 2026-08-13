@@ -33,7 +33,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "browser_version",
+            ["name"] = "browserVersion",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
@@ -54,7 +54,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "os_version",
+            ["name"] = "osVersion",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 4,
@@ -88,6 +88,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/user-agent",
                 ["parts"] = {

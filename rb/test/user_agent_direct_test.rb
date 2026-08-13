@@ -65,11 +65,11 @@ def user_agent_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "USERAGENTLOOKUP_TEST_USER_AGENT_ENTID" => {},
-    "USERAGENTLOOKUP_TEST_LIVE" => "FALSE",
+    "USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID" => {},
+    "USER_AGENT_LOOKUP_TEST_LIVE" => "FALSE",
   })
 
-  live = env["USERAGENTLOOKUP_TEST_LIVE"] == "TRUE"
+  live = env["USER_AGENT_LOOKUP_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

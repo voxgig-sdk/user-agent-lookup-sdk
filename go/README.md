@@ -259,10 +259,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"browser"` |  |
-| `"browser_version"` |  |
+| `"browserVersion"` |  |
 | `"device"` |  |
 | `"os"` |  |
-| `"os_version"` |  |
+| `"osVersion"` |  |
 | `"platform"` |  |
 
 Operations: Load.
@@ -289,10 +289,10 @@ Create an instance: `userAgent := client.UserAgent(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `browser` | `string` |  |
-| `browser_version` | `string` |  |
+| `browserVersion` | `string` |  |
 | `device` | `string` |  |
 | `os` | `string` |  |
-| `os_version` | `string` |  |
+| `osVersion` | `string` |  |
 | `platform` | `string` |  |
 
 #### Example: Load

@@ -33,7 +33,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "browser_version",
+						"name": "browserVersion",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
@@ -54,7 +54,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "os_version",
+						"name": "osVersion",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 4,
@@ -88,6 +88,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/user-agent",
 								"parts": []any{
@@ -105,7 +106,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

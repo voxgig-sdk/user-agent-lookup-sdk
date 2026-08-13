@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = UserAgentLookupSDK.test()
 
 const useragent = await client.UserAgent().load()
-// useragent is a bare entity populated with mock response data
+// useragent is the entity, populated with mock response data
+// — call useragent.data() for the record itself
 console.log(useragent)
 ```
 
@@ -285,10 +286,10 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `browser` |  |
-| `browser_version` |  |
+| `browserVersion` |  |
 | `device` |  |
 | `os` |  |
-| `os_version` |  |
+| `osVersion` |  |
 | `platform` |  |
 
 Operations: load.
@@ -315,10 +316,10 @@ Create an instance: `const user_agent = client.UserAgent()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `browser` | `string` |  |
-| `browser_version` | `string` |  |
+| `browserVersion` | `string` |  |
 | `device` | `string` |  |
 | `os` | `string` |  |
-| `os_version` | `string` |  |
+| `osVersion` | `string` |  |
 | `platform` | `string` |  |
 
 #### Example: Load

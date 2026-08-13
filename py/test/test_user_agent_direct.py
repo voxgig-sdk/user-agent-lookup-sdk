@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from useragentlookup_sdk.utility.voxgig_struct import voxgig_struct as vs
 from useragentlookup_sdk import UserAgentLookupSDK
-from core import helpers
+from useragentlookup_sdk.core import helpers
 from test import runner
 
 
@@ -61,11 +61,11 @@ def _user_agent_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "USERAGENTLOOKUP_TEST_USER_AGENT_ENTID": {},
-        "USERAGENTLOOKUP_TEST_LIVE": "FALSE",
+        "USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID": {},
+        "USER_AGENT_LOOKUP_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("USERAGENTLOOKUP_TEST_LIVE") == "TRUE"
+    live = env.get("USER_AGENT_LOOKUP_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

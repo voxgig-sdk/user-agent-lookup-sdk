@@ -44,7 +44,7 @@ func TestUserAgentEntity(t *testing.T) {
 		// The basic flow consumes synthetic IDs from the fixture. In live mode
 		// without an *_ENTID env override, those IDs hit the live API and 4xx.
 		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set USERAGENTLOOKUP_TEST_USER_AGENT_ENTID JSON to run live")
+			t.Skip("live entity test uses synthetic IDs from fixture — set USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID JSON to run live")
 			return
 		}
 		client := setup.client
@@ -110,21 +110,21 @@ func user_agentBasicSetup(extra map[string]any) *entityTestSetup {
 	// Detect ENTID env override before envOverride consumes it. When live
 	// mode is on without a real override, the basic test runs against synthetic
 	// IDs from the fixture and 4xx's. Surface this so the test can skip.
-	entidEnvRaw := os.Getenv("USERAGENTLOOKUP_TEST_USER_AGENT_ENTID")
+	entidEnvRaw := os.Getenv("USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 
 	env := envOverride(map[string]any{
-		"USERAGENTLOOKUP_TEST_USER_AGENT_ENTID": idmap,
-		"USERAGENTLOOKUP_TEST_LIVE":      "FALSE",
-		"USERAGENTLOOKUP_TEST_EXPLAIN":   "FALSE",
+		"USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID": idmap,
+		"USER_AGENT_LOOKUP_TEST_LIVE":      "FALSE",
+		"USER_AGENT_LOOKUP_TEST_EXPLAIN":   "FALSE",
 	})
 
-	idmapResolved := core.ToMapAny(env["USERAGENTLOOKUP_TEST_USER_AGENT_ENTID"])
+	idmapResolved := core.ToMapAny(env["USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}
 
-	if env["USERAGENTLOOKUP_TEST_LIVE"] == "TRUE" {
+	if env["USER_AGENT_LOOKUP_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
 			},
@@ -133,13 +133,13 @@ func user_agentBasicSetup(extra map[string]any) *entityTestSetup {
 		client = sdk.NewUserAgentLookupSDK(core.ToMapAny(mergedOpts))
 	}
 
-	live := env["USERAGENTLOOKUP_TEST_LIVE"] == "TRUE"
+	live := env["USER_AGENT_LOOKUP_TEST_LIVE"] == "TRUE"
 	return &entityTestSetup{
 		client:        client,
 		data:          entityData,
 		idmap:         idmapResolved,
 		env:           env,
-		explain:       env["USERAGENTLOOKUP_TEST_EXPLAIN"] == "TRUE",
+		explain:       env["USER_AGENT_LOOKUP_TEST_EXPLAIN"] == "TRUE",
 		live:          live,
 		syntheticOnly: live && !idmapOverridden,
 		now:           time.Now().UnixMilli(),

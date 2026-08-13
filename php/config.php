@@ -39,7 +39,7 @@ class UserAgentLookupConfig
             ],
             [
               'active' => true,
-              'name' => 'browser_version',
+              'name' => 'browserVersion',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 1,
@@ -60,7 +60,7 @@ class UserAgentLookupConfig
             ],
             [
               'active' => true,
-              'name' => 'os_version',
+              'name' => 'osVersion',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 4,
@@ -94,6 +94,7 @@ class UserAgentLookupConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/user-agent',
                   'parts' => [

@@ -11,7 +11,7 @@ main: kit: entity: user_agent: {
       type: "`$STRING`"
     }
     {
-      name: "browser_version"
+      name: "browserVersion"
       req: false
       type: "`$STRING`"
     }
@@ -26,7 +26,7 @@ main: kit: entity: user_agent: {
       type: "`$STRING`"
     }
     {
-      name: "os_version"
+      name: "osVersion"
       req: false
       type: "`$STRING`"
     }

@@ -94,10 +94,10 @@ user_agent = client.UserAgent
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `browser` | `String` | No |  |
-| `browser_version` | `String` | No |  |
+| `browserVersion` | `String` | No |  |
 | `device` | `String` | No |  |
 | `os` | `String` | No |  |
-| `os_version` | `String` | No |  |
+| `osVersion` | `String` | No |  |
 | `platform` | `String` | No |  |
 
 ### Operations

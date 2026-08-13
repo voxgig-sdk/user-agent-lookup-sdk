@@ -29,7 +29,7 @@ describe("UserAgentEntity", function()
     -- The basic flow consumes synthetic IDs from the fixture. In live mode
     -- without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set USERAGENTLOOKUP_TEST_USER_AGENT_ENTID JSON to run live")
+      pending("live entity test uses synthetic IDs from fixture — set USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID JSON to run live")
       return
     end
     local client = setup.client
@@ -84,22 +84,22 @@ function user_agent_basic_setup(extra)
   -- Detect ENTID env override before envOverride consumes it. When live
   -- mode is on without a real override, the basic test runs against synthetic
   -- IDs from the fixture and 4xx's. Surface this so the test can skip.
-  local entid_env_raw = os.getenv("USERAGENTLOOKUP_TEST_USER_AGENT_ENTID")
+  local entid_env_raw = os.getenv("USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 
   local env = runner.env_override({
-    ["USERAGENTLOOKUP_TEST_USER_AGENT_ENTID"] = idmap,
-    ["USERAGENTLOOKUP_TEST_LIVE"] = "FALSE",
-    ["USERAGENTLOOKUP_TEST_EXPLAIN"] = "FALSE",
+    ["USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID"] = idmap,
+    ["USER_AGENT_LOOKUP_TEST_LIVE"] = "FALSE",
+    ["USER_AGENT_LOOKUP_TEST_EXPLAIN"] = "FALSE",
   })
 
   local idmap_resolved = helpers.to_map(
-    env["USERAGENTLOOKUP_TEST_USER_AGENT_ENTID"])
+    env["USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end
 
-  if env["USERAGENTLOOKUP_TEST_LIVE"] == "TRUE" then
+  if env["USER_AGENT_LOOKUP_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
       },
@@ -108,13 +108,13 @@ function user_agent_basic_setup(extra)
     client = sdk.new(helpers.to_map(merged_opts))
   end
 
-  local live = env["USERAGENTLOOKUP_TEST_LIVE"] == "TRUE"
+  local live = env["USER_AGENT_LOOKUP_TEST_LIVE"] == "TRUE"
   return {
     client = client,
     data = entity_data,
     idmap = idmap_resolved,
     env = env,
-    explain = env["USERAGENTLOOKUP_TEST_EXPLAIN"] == "TRUE",
+    explain = env["USER_AGENT_LOOKUP_TEST_EXPLAIN"] == "TRUE",
     live = live,
     synthetic_only = live and not idmap_overridden,
     now = os.time() * 1000,

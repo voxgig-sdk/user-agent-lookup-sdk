@@ -34,7 +34,7 @@ client = UserAgentLookupSDK.new
 
 ```ruby
 begin
-  # load returns the bare UserAgent record (raises on error).
+  # load returns the ENTITY — call data_get for the UserAgent record (raises on error).
   useragent = client.UserAgent.load()
   puts useragent
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = UserAgentLookupSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 useragent = client.UserAgent.load()
 puts useragent
 ```
@@ -235,10 +236,10 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `browser` |  |
-| `browser_version` |  |
+| `browserVersion` |  |
 | `device` |  |
 | `os` |  |
-| `os_version` |  |
+| `osVersion` |  |
 | `platform` |  |
 
 Operations: Load.
@@ -265,16 +266,16 @@ Create an instance: `user_agent = client.UserAgent`
 | Field | Type | Description |
 | --- | --- | --- |
 | `browser` | `String` |  |
-| `browser_version` | `String` |  |
+| `browserVersion` | `String` |  |
 | `device` | `String` |  |
 | `os` | `String` |  |
-| `os_version` | `String` |  |
+| `osVersion` | `String` |  |
 | `platform` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare UserAgent record (raises on error).
+# load returns the ENTITY — call data_get for the UserAgent record (raises on error).
 user_agent = client.UserAgent.load()
 ```
 

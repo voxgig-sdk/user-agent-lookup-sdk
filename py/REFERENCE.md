@@ -88,10 +88,10 @@ user_agent = client.UserAgent()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `browser` | `str` | No |  |
-| `browser_version` | `str` | No |  |
+| `browserVersion` | `str` | No |  |
 | `device` | `str` | No |  |
 | `os` | `str` | No |  |
-| `os_version` | `str` | No |  |
+| `osVersion` | `str` | No |  |
 | `platform` | `str` | No |  |
 
 ### Operations

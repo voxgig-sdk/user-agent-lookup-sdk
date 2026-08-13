@@ -16,10 +16,10 @@ declare(strict_types=1);
 class UserAgent
 {
     public ?string $browser = null;
-    public ?string $browser_version = null;
+    public ?string $browserVersion = null;
     public ?string $device = null;
     public ?string $os = null;
-    public ?string $os_version = null;
+    public ?string $osVersion = null;
     public ?string $platform = null;
 }
 
@@ -27,10 +27,10 @@ class UserAgent
 class UserAgentLoadMatch
 {
     public ?string $browser = null;
-    public ?string $browser_version = null;
+    public ?string $browserVersion = null;
     public ?string $device = null;
     public ?string $os = null;
-    public ?string $os_version = null;
+    public ?string $osVersion = null;
     public ?string $platform = null;
 }
 

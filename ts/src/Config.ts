@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'UserAgentLookup',
   }
 
 
@@ -63,7 +63,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "browser_version",
+          "name": "browserVersion",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -84,7 +84,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "os_version",
+          "name": "osVersion",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
@@ -118,6 +118,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/user-agent",
               "parts": [

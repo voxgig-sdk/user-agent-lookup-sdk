@@ -13,7 +13,7 @@
 # @!attribute [rw] browser
 #   @return [String, nil]
 #
-# @!attribute [rw] browser_version
+# @!attribute [rw] browserVersion
 #   @return [String, nil]
 #
 # @!attribute [rw] device
@@ -22,17 +22,17 @@
 # @!attribute [rw] os
 #   @return [String, nil]
 #
-# @!attribute [rw] os_version
+# @!attribute [rw] osVersion
 #   @return [String, nil]
 #
 # @!attribute [rw] platform
 #   @return [String, nil]
 UserAgent = Struct.new(
   :browser,
-  :browser_version,
+  :browserVersion,
   :device,
   :os,
-  :os_version,
+  :osVersion,
   :platform,
   keyword_init: true
 )
@@ -42,7 +42,7 @@ UserAgent = Struct.new(
 # @!attribute [rw] browser
 #   @return [String, nil]
 #
-# @!attribute [rw] browser_version
+# @!attribute [rw] browserVersion
 #   @return [String, nil]
 #
 # @!attribute [rw] device
@@ -51,17 +51,17 @@ UserAgent = Struct.new(
 # @!attribute [rw] os
 #   @return [String, nil]
 #
-# @!attribute [rw] os_version
+# @!attribute [rw] osVersion
 #   @return [String, nil]
 #
 # @!attribute [rw] platform
 #   @return [String, nil]
 UserAgentLoadMatch = Struct.new(
   :browser,
-  :browser_version,
+  :browserVersion,
   :device,
   :os,
-  :os_version,
+  :osVersion,
   :platform,
   keyword_init: true
 )

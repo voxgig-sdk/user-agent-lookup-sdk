@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# UserAgentLookup SDK exists test
 
 import pytest
 from useragentlookup_sdk import UserAgentLookupSDK

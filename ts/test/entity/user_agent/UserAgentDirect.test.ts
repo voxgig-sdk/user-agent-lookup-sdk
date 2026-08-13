@@ -19,11 +19,15 @@ import {
 describe('UserAgentDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when USERAGENTLOOKUP_TEST_LIVE=TRUE.
-  afterEach(liveDelay('USERAGENTLOOKUP_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when USER_AGENT_LOOKUP_TEST_LIVE=TRUE.
+  afterEach(liveDelay('USER_AGENT_LOOKUP_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new UserAgentLookupSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -76,17 +80,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'USERAGENTLOOKUP_TEST_USER_AGENT_ENTID': {},
-    'USERAGENTLOOKUP_TEST_LIVE': 'FALSE',
+    'USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID': {},
+    'USER_AGENT_LOOKUP_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.USERAGENTLOOKUP_TEST_LIVE
+  const live = 'TRUE' === env.USER_AGENT_LOOKUP_TEST_LIVE
 
   if (live) {
     const client = new UserAgentLookupSDK({
     })
 
-    let idmap: any = env['USERAGENTLOOKUP_TEST_USER_AGENT_ENTID']
+    let idmap: any = env['USER_AGENT_LOOKUP_TEST_USER_AGENT_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

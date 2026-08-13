@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import UserAgentLookupSDK
-from core.error import UserAgentLookupError
-from core.result import UserAgentLookupResult
-from core.response import UserAgentLookupResponse
-from core.spec import UserAgentLookupSpec
-from feature.base_feature import UserAgentLookupBaseFeature
+from projectname_sdk.core.error import UserAgentLookupError
+from projectname_sdk.core.result import UserAgentLookupResult
+from projectname_sdk.core.response import UserAgentLookupResponse
+from projectname_sdk.core.spec import UserAgentLookupSpec
+from projectname_sdk.feature.base_feature import UserAgentLookupBaseFeature
 
 
 def _client():

@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import UserAgentLookupControl
-from core.error import UserAgentLookupError
-from core.result import UserAgentLookupResult
-from core.spec import UserAgentLookupSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import UserAgentLookupControl
+from projectname_sdk.core.error import UserAgentLookupError
+from projectname_sdk.core.result import UserAgentLookupResult
+from projectname_sdk.core.spec import UserAgentLookupSpec
 
 
 # True when this SDK was generated with the named feature.

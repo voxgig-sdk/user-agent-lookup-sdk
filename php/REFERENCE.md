@@ -93,10 +93,10 @@ $user_agent = $client->UserAgent();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `browser` | `string` | No |  |
-| `browser_version` | `string` | No |  |
+| `browserVersion` | `string` | No |  |
 | `device` | `string` | No |  |
 | `os` | `string` | No |  |
-| `os_version` | `string` | No |  |
+| `osVersion` | `string` | No |  |
 | `platform` | `string` | No |  |
 
 ### Operations

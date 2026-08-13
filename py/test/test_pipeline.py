@@ -16,11 +16,11 @@
 import pytest
 
 from useragentlookup_sdk import UserAgentLookupSDK
-from core.error import UserAgentLookupError
-from core.result import UserAgentLookupResult
-from core.response import UserAgentLookupResponse
-from core.spec import UserAgentLookupSpec
-from feature.base_feature import UserAgentLookupBaseFeature
+from useragentlookup_sdk.core.error import UserAgentLookupError
+from useragentlookup_sdk.core.result import UserAgentLookupResult
+from useragentlookup_sdk.core.response import UserAgentLookupResponse
+from useragentlookup_sdk.core.spec import UserAgentLookupSpec
+from useragentlookup_sdk.feature.base_feature import UserAgentLookupBaseFeature
 
 
 def _client():
