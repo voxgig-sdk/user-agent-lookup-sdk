@@ -40,7 +40,7 @@ class UserAgentLookupSDK
         $utility = new UserAgentLookupUtility();
         $this->_utility = $utility;
 
-        $config = UserAgentLookupConfig::make_config();
+        $config = UserAgentLookupConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

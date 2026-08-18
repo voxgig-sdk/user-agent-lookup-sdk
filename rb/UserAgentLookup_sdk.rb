@@ -28,7 +28,7 @@ class UserAgentLookupSDK
     utility = UserAgentLookupUtility.new
     @_utility = utility
 
-    config = UserAgentLookupConfig.make_config
+    config = UserAgentLookupConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
