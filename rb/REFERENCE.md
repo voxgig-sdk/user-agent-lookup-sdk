@@ -93,12 +93,12 @@ user_agent = client.UserAgent
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `browser` | `String` | No |  |
-| `browserVersion` | `String` | No |  |
-| `device` | `String` | No |  |
-| `os` | `String` | No |  |
-| `osVersion` | `String` | No |  |
-| `platform` | `String` | No |  |
+| `browser` | `String` | No | Browser name |
+| `browserVersion` | `String` | No | Browser version |
+| `device` | `String` | No | Device type |
+| `os` | `String` | No | Operating system name |
+| `osVersion` | `String` | No | Operating system version |
+| `platform` | `String` | No | Platform information |
 
 ### Operations
 

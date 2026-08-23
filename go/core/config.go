@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "UserAgentLookup",
+			"slug": "user-agent-lookup",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,26 +36,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "browser",
+						"short": "Browser name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "browserVersion",
+						"short": "Browser version",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "device",
+						"short": "Device type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "os",
+						"short": "Operating system name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "osVersion",
+						"short": "Operating system version",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "platform",
+						"short": "Platform information",
 						"type": "`$STRING`",
 					},
 				},

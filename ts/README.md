@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,12 +285,12 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `browser` |  |
-| `browserVersion` |  |
-| `device` |  |
-| `os` |  |
-| `osVersion` |  |
-| `platform` |  |
+| `browser` | Browser name |
+| `browserVersion` | Browser version |
+| `device` | Device type |
+| `os` | Operating system name |
+| `osVersion` | Operating system version |
+| `platform` | Platform information |
 
 Operations: load.
 
@@ -315,12 +315,12 @@ Create an instance: `const user_agent = client.UserAgent()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `browser` | `string` |  |
-| `browserVersion` | `string` |  |
-| `device` | `string` |  |
-| `os` | `string` |  |
-| `osVersion` | `string` |  |
-| `platform` | `string` |  |
+| `browser` | `string` | Browser name |
+| `browserVersion` | `string` | Browser version |
+| `device` | `string` | Device type |
+| `os` | `string` | Operating system name |
+| `osVersion` | `string` | Operating system version |
+| `platform` | `string` | Platform information |
 
 #### Example: Load
 

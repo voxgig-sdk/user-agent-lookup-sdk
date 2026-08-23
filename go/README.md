@@ -6,7 +6,7 @@ The Golang SDK for the UserAgentLookup API — an entity-oriented client using s
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.UserAgent(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,12 +258,12 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"browser"` |  |
-| `"browserVersion"` |  |
-| `"device"` |  |
-| `"os"` |  |
-| `"osVersion"` |  |
-| `"platform"` |  |
+| `"browser"` | Browser name |
+| `"browserVersion"` | Browser version |
+| `"device"` | Device type |
+| `"os"` | Operating system name |
+| `"osVersion"` | Operating system version |
+| `"platform"` | Platform information |
 
 Operations: Load.
 
@@ -288,12 +288,12 @@ Create an instance: `userAgent := client.UserAgent(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `browser` | `string` |  |
-| `browserVersion` | `string` |  |
-| `device` | `string` |  |
-| `os` | `string` |  |
-| `osVersion` | `string` |  |
-| `platform` | `string` |  |
+| `browser` | `string` | Browser name |
+| `browserVersion` | `string` | Browser version |
+| `device` | `string` | Device type |
+| `os` | `string` | Operating system name |
+| `osVersion` | `string` | Operating system version |
+| `platform` | `string` | Platform information |
 
 #### Example: Load
 

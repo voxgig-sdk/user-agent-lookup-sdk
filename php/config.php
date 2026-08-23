@@ -33,6 +33,9 @@ class UserAgentLookupConfig
         return [
             "main" => [
                 "name" => "UserAgentLookup",
+                "slug" => "user-agent-lookup",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -55,26 +58,32 @@ class UserAgentLookupConfig
           'fields' => [
             [
               'name' => 'browser',
+              'short' => 'Browser name',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'browserVersion',
+              'short' => 'Browser version',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'device',
+              'short' => 'Device type',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'os',
+              'short' => 'Operating system name',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'osVersion',
+              'short' => 'Operating system version',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'platform',
+              'short' => 'Platform information',
               'type' => '`$STRING`',
             ],
           ],

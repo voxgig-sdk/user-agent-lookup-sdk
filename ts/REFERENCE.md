@@ -116,12 +116,12 @@ const user_agent = client.UserAgent()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `browser` | `string` | No |  |
-| `browserVersion` | `string` | No |  |
-| `device` | `string` | No |  |
-| `os` | `string` | No |  |
-| `osVersion` | `string` | No |  |
-| `platform` | `string` | No |  |
+| `browser` | `string` | No | Browser name |
+| `browserVersion` | `string` | No | Browser version |
+| `device` | `string` | No | Device type |
+| `os` | `string` | No | Operating system name |
+| `osVersion` | `string` | No | Operating system version |
+| `platform` | `string` | No | Platform information |
 
 ### Operations
 

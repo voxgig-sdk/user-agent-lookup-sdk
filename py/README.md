@@ -241,12 +241,12 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `browser` |  |
-| `browserVersion` |  |
-| `device` |  |
-| `os` |  |
-| `osVersion` |  |
-| `platform` |  |
+| `browser` | Browser name |
+| `browserVersion` | Browser version |
+| `device` | Device type |
+| `os` | Operating system name |
+| `osVersion` | Operating system version |
+| `platform` | Platform information |
 
 Operations: Load.
 
@@ -271,12 +271,12 @@ Create an instance: `user_agent = client.UserAgent()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `browser` | `str` |  |
-| `browserVersion` | `str` |  |
-| `device` | `str` |  |
-| `os` | `str` |  |
-| `osVersion` | `str` |  |
-| `platform` | `str` |  |
+| `browser` | `str` | Browser name |
+| `browserVersion` | `str` | Browser version |
+| `device` | `str` | Device type |
+| `os` | `str` | Operating system name |
+| `osVersion` | `str` | Operating system version |
+| `platform` | `str` | Platform information |
 
 #### Example: Load
 

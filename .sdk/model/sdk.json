@@ -36,36 +36,42 @@
               "active": true,
               "name": "browser",
               "req": false,
+              "short": "Browser name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "browserVersion",
               "req": false,
+              "short": "Browser version",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "device",
               "req": false,
+              "short": "Device type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "os",
               "req": false,
+              "short": "Operating system name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "osVersion",
               "req": false,
+              "short": "Operating system version",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "platform",
               "req": false,
+              "short": "Platform information",
               "type": "`$STRING`"
             }
           ],

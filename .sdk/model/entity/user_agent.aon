@@ -8,31 +8,37 @@ main: kit: entity: user_agent: {
     {
       name: "browser"
       req: false
+      short: "Browser name"
       type: "`$STRING`"
     }
     {
       name: "browserVersion"
       req: false
+      short: "Browser version"
       type: "`$STRING`"
     }
     {
       name: "device"
       req: false
+      short: "Device type"
       type: "`$STRING`"
     }
     {
       name: "os"
       req: false
+      short: "Operating system name"
       type: "`$STRING`"
     }
     {
       name: "osVersion"
       req: false
+      short: "Operating system version"
       type: "`$STRING`"
     }
     {
       name: "platform"
       req: false
+      short: "Platform information"
       type: "`$STRING`"
     }
   ]

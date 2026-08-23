@@ -87,12 +87,12 @@ user_agent = client.UserAgent()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `browser` | `str` | No |  |
-| `browserVersion` | `str` | No |  |
-| `device` | `str` | No |  |
-| `os` | `str` | No |  |
-| `osVersion` | `str` | No |  |
-| `platform` | `str` | No |  |
+| `browser` | `str` | No | Browser name |
+| `browserVersion` | `str` | No | Browser version |
+| `device` | `str` | No | Device type |
+| `os` | `str` | No | Operating system name |
+| `osVersion` | `str` | No | Operating system version |
+| `platform` | `str` | No | Platform information |
 
 ### Operations
 

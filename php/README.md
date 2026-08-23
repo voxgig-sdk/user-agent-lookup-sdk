@@ -245,12 +245,12 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `browser` |  |
-| `browserVersion` |  |
-| `device` |  |
-| `os` |  |
-| `osVersion` |  |
-| `platform` |  |
+| `browser` | Browser name |
+| `browserVersion` | Browser version |
+| `device` | Device type |
+| `os` | Operating system name |
+| `osVersion` | Operating system version |
+| `platform` | Platform information |
 
 Operations: Load.
 
@@ -275,12 +275,12 @@ Create an instance: `$user_agent = $client->UserAgent();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `browser` | `string` |  |
-| `browserVersion` | `string` |  |
-| `device` | `string` |  |
-| `os` | `string` |  |
-| `osVersion` | `string` |  |
-| `platform` | `string` |  |
+| `browser` | `string` | Browser name |
+| `browserVersion` | `string` | Browser version |
+| `device` | `string` | Device type |
+| `os` | `string` | Operating system name |
+| `osVersion` | `string` | Operating system version |
+| `platform` | `string` | Platform information |
 
 #### Example: Load
 

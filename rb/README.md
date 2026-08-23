@@ -235,12 +235,12 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `browser` |  |
-| `browserVersion` |  |
-| `device` |  |
-| `os` |  |
-| `osVersion` |  |
-| `platform` |  |
+| `browser` | Browser name |
+| `browserVersion` | Browser version |
+| `device` | Device type |
+| `os` | Operating system name |
+| `osVersion` | Operating system version |
+| `platform` | Platform information |
 
 Operations: Load.
 
@@ -265,12 +265,12 @@ Create an instance: `user_agent = client.UserAgent`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `browser` | `String` |  |
-| `browserVersion` | `String` |  |
-| `device` | `String` |  |
-| `os` | `String` |  |
-| `osVersion` | `String` |  |
-| `platform` | `String` |  |
+| `browser` | `String` | Browser name |
+| `browserVersion` | `String` | Browser version |
+| `device` | `String` | Device type |
+| `os` | `String` | Operating system name |
+| `osVersion` | `String` | Operating system version |
+| `platform` | `String` | Platform information |
 
 #### Example: Load
 

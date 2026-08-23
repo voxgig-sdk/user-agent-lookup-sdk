@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'UserAgentLookup',
+        slug: "user-agent-lookup",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,26 +67,32 @@ class Config {
       "fields": [
         {
           "name": "browser",
+          "short": "Browser name",
           "type": "`$STRING`"
         },
         {
           "name": "browserVersion",
+          "short": "Browser version",
           "type": "`$STRING`"
         },
         {
           "name": "device",
+          "short": "Device type",
           "type": "`$STRING`"
         },
         {
           "name": "os",
+          "short": "Operating system name",
           "type": "`$STRING`"
         },
         {
           "name": "osVersion",
+          "short": "Operating system version",
           "type": "`$STRING`"
         },
         {
           "name": "platform",
+          "short": "Platform information",
           "type": "`$STRING`"
         }
       ],
