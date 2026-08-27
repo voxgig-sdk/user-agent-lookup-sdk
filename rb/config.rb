@@ -28,6 +28,7 @@ module UserAgentLookupConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {

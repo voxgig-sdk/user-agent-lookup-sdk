@@ -42,6 +42,7 @@ class UserAgentLookupConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
