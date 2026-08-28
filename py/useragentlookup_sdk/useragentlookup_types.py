@@ -25,10 +25,5 @@ class UserAgent(TypedDict, total=False):
     platform: str
 
 
-class UserAgentLoadMatch(TypedDict, total=False):
-    browser: str
-    browserVersion: str
-    device: str
-    os: str
-    osVersion: str
-    platform: str
+class UserAgentLoadMatch(TypedDict):
+    ua: str

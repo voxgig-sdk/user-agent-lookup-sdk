@@ -26,11 +26,6 @@ class UserAgent
 /** Request payload for UserAgent#load. */
 class UserAgentLoadMatch
 {
-    public ?string $browser = null;
-    public ?string $browserVersion = null;
-    public ?string $device = null;
-    public ?string $os = null;
-    public ?string $osVersion = null;
-    public ?string $platform = null;
+    public string $ua;
 }
 

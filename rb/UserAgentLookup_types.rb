@@ -39,30 +39,10 @@ UserAgent = Struct.new(
 
 # Request payload for UserAgent#load.
 #
-# @!attribute [rw] browser
-#   @return [String, nil]
-#
-# @!attribute [rw] browserVersion
-#   @return [String, nil]
-#
-# @!attribute [rw] device
-#   @return [String, nil]
-#
-# @!attribute [rw] os
-#   @return [String, nil]
-#
-# @!attribute [rw] osVersion
-#   @return [String, nil]
-#
-# @!attribute [rw] platform
-#   @return [String, nil]
+# @!attribute [rw] ua
+#   @return [String]
 UserAgentLoadMatch = Struct.new(
-  :browser,
-  :browserVersion,
-  :device,
-  :os,
-  :osVersion,
-  :platform,
+  :ua,
   keyword_init: true
 )
 

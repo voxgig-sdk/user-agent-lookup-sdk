@@ -24,12 +24,7 @@ type UserAgent struct {
 
 // UserAgentLoadMatch is the typed request payload for UserAgent.LoadTyped.
 type UserAgentLoadMatch struct {
-	Browser *string `json:"browser,omitempty"`
-	BrowserVersion *string `json:"browserVersion,omitempty"`
-	Device *string `json:"device,omitempty"`
-	Os *string `json:"os,omitempty"`
-	OsVersion *string `json:"osVersion,omitempty"`
-	Platform *string `json:"platform,omitempty"`
+	Ua string `json:"ua"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

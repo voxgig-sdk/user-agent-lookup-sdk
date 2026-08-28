@@ -15,11 +15,6 @@ export interface UserAgent {
 }
 
 export interface UserAgentLoadMatch {
-  browser?: string
-  browserVersion?: string
-  device?: string
-  os?: string
-  osVersion?: string
-  platform?: string
+  ua: string
 }
 

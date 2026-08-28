@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single userAgent — the value is the loaded record.
-    userAgent, err := client.UserAgent(nil).Load(nil, nil)
+    userAgent, err := client.UserAgent(nil).Load(map[string]any{"ua": "example_ua"}, nil)
     if err != nil {
         panic(err)
     }
@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-useragent, err := client.UserAgent(nil).Load(nil, nil)
+useragent, err := client.UserAgent(nil).Load(map[string]any{"ua": "example"}, nil)
 if err != nil {
     // handle err
     return
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 userAgent, err := client.UserAgent(nil).Load(
-    nil, nil,
+    map[string]any{"ua": "example"}, nil,
 )
 if err != nil {
     panic(err)
@@ -298,12 +298,35 @@ Create an instance: `userAgent := client.UserAgent(nil)`
 #### Example: Load
 
 ```go
-userAgent, err := client.UserAgent(nil).Load(nil, nil)
+userAgent, err := client.UserAgent(nil).Load(map[string]any{"ua": "ua"}, nil)
 if err != nil {
     panic(err)
 }
 fmt.Println(userAgent) // the loaded record
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -380,7 +403,7 @@ stores the returned data and match criteria internally.
 
 ```go
 useragent := client.UserAgent(nil)
-useragent.Load(nil, nil)
+useragent.Load(map[string]any{"ua": "example"}, nil)
 
 // useragent.Data() now returns the useragent data from the last load
 // useragent.Match() returns the last match criteria
