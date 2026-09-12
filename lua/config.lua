@@ -84,8 +84,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/user-agent",
-                ["parts"] = {
-                  "user-agent",
+                ["segments"] = {
+                  {
+                    ["lit"] = "user-agent",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -95,6 +97,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "user-agent",
                 },
               },
             },

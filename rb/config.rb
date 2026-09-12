@@ -96,8 +96,10 @@ module UserAgentLookupConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/user-agent",
-                  "parts" => [
-                    "user-agent",
+                  "segments" => [
+                    {
+                      "lit" => "user-agent",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -108,6 +110,9 @@ module UserAgentLookupConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "user-agent",
+                  ],
                 },
               ],
             },

@@ -50,7 +50,7 @@ func TestUserAgentEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		userAgentRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.user_agent", setup.data)))
+		userAgentRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.user_agent")))
 		var userAgentRef01Data map[string]any
 		if len(userAgentRef01DataRaw) > 0 {
 			userAgentRef01Data = core.ToMapAny(userAgentRef01DataRaw[0][1])
@@ -97,7 +97,7 @@ func user_agentBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"user_agent01", "user_agent02", "user_agent03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -125,10 +125,22 @@ func user_agentBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["USER_AGENT_LOOKUP_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewUserAgentLookupSDK(core.ToMapAny(mergedOpts))
 	}
