@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { UserAgentLookupSDK } from '@voxgig-sdk/user-agent-lookup'
+import { UserAgentLookupSDK } from '@voxgig-sdk/user-agent-lookup-sdk'
 
 const client = new UserAgentLookupSDK()
 ```
@@ -411,7 +411,7 @@ user-agent-lookup/
 Import the SDK from the package root:
 
 ```ts
-import { UserAgentLookupSDK } from '@voxgig-sdk/user-agent-lookup'
+import { UserAgentLookupSDK } from '@voxgig-sdk/user-agent-lookup-sdk'
 ```
 
 ### Entity state

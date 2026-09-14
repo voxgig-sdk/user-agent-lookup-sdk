@@ -105,7 +105,7 @@ local result, err = client:UserAgent():load({ ua = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases) |
+| TypeScript | `@voxgig-sdk/user-agent-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases) |
 | Python | `voxgig-sdk-user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases) |
 | PHP | `voxgig-sdk/user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/user-agent-lookup-sdk/go` | `go get github.com/voxgig-sdk/user-agent-lookup-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:UserAgent():load({ ua = "example" })
 ### TypeScript
 
 ```ts
-import { UserAgentLookupSDK } from '@voxgig-sdk/user-agent-lookup'
+import { UserAgentLookupSDK } from '@voxgig-sdk/user-agent-lookup-sdk'
 
 const client = new UserAgentLookupSDK()
 
