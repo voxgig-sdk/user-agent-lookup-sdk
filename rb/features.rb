@@ -1,7 +1,10 @@
 # UserAgentLookup SDK feature factory
 
 require_relative 'feature/base_feature'
+require_relative 'feature/ratelimit_feature'
+require_relative 'feature/retry_feature'
 require_relative 'feature/test_feature'
+require_relative 'feature/timeout_feature'
 
 
 module UserAgentLookupFeatures
@@ -9,8 +12,14 @@ module UserAgentLookupFeatures
     case name
     when "base"
       UserAgentLookupBaseFeature.new
+    when "ratelimit"
+      UserAgentLookupRatelimitFeature.new
+    when "retry"
+      UserAgentLookupRetryFeature.new
     when "test"
       UserAgentLookupTestFeature.new
+    when "timeout"
+      UserAgentLookupTimeoutFeature.new
     else
       UserAgentLookupBaseFeature.new
     end

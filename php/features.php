@@ -4,7 +4,10 @@ declare(strict_types=1);
 // UserAgentLookup SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class UserAgentLookupFeatures
@@ -14,8 +17,14 @@ class UserAgentLookupFeatures
         switch ($name) {
             case "base":
                 return new UserAgentLookupBaseFeature();
+            case "ratelimit":
+                return new UserAgentLookupRatelimitFeature();
+            case "retry":
+                return new UserAgentLookupRetryFeature();
             case "test":
                 return new UserAgentLookupTestFeature();
+            case "timeout":
+                return new UserAgentLookupTimeoutFeature();
             default:
                 return new UserAgentLookupBaseFeature();
         }
@@ -31,7 +40,10 @@ class UserAgentLookupFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
