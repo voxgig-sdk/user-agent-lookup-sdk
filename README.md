@@ -105,12 +105,12 @@ local result, err = client:UserAgent():load({ ua = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/user-agent-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases) |
-| Python | `voxgig-sdk-user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases) |
-| PHP | `voxgig-sdk/user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases) |
+| TypeScript | `@voxgig-sdk/user-agent-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/tags) |
+| Python | `voxgig-sdk-user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/tags) |
+| PHP | `voxgig-sdk/user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/user-agent-lookup-sdk/go` | `go get github.com/voxgig-sdk/user-agent-lookup-sdk/go@latest` |
-| Ruby | `voxgig-sdk-user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases) |
-| Lua | `voxgig-sdk-user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases) |
+| Ruby | `voxgig-sdk-user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/tags) |
+| Lua | `voxgig-sdk-user-agent-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/user-agent-lookup-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/user-agent-lookup-sdk/go-cli` | `go install github.com/voxgig-sdk/user-agent-lookup-sdk/go-cli/cmd/user-agent-lookup@latest` |
 | Go MCP server | `github.com/voxgig-sdk/user-agent-lookup-sdk/go-mcp` | `go get github.com/voxgig-sdk/user-agent-lookup-sdk/go-mcp@latest` |
 
