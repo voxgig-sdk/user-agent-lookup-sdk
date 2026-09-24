@@ -1,0 +1,98 @@
+# Entity: user_agent
+
+main: kit: entity: user_agent: {
+
+  alias: field: {}
+
+  fields: {
+    browser: {
+      h: "Browser"
+      n: "browser"
+      r: false
+      sh: "Browser name"
+      t: "`$STRING`"
+    }
+    browserVersion: {
+      h: "Browser Version"
+      n: "browserVersion"
+      r: false
+      sh: "Browser version"
+      t: "`$STRING`"
+    }
+    device: {
+      h: "Device"
+      n: "device"
+      r: false
+      sh: "Device type"
+      t: "`$STRING`"
+    }
+    os: {
+      h: "Os"
+      n: "os"
+      r: false
+      sh: "Operating system name"
+      t: "`$STRING`"
+    }
+    osVersion: {
+      h: "Os Version"
+      n: "osVersion"
+      r: false
+      sh: "Operating system version"
+      t: "`$STRING`"
+    }
+    platform: {
+      h: "Platform"
+      n: "platform"
+      r: false
+      sh: "Platform information"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "user_agent"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /user-agent"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                k: "query"
+                n: "ua"
+                or: "ua"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/user-agent"
+          q: {
+            exist: [
+              "ua"
+            ]
+          }
+          s: [
+            {
+              lit: "user-agent"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

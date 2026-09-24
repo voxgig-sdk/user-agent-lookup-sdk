@@ -1,0 +1,28 @@
+# BasicUserAgentFlow
+
+main: kit: flow: BasicUserAgentFlow:
+{
+  entity: "user_agent",
+  kind: "basic",
+  name: "BasicUserAgentFlow",
+  step: [
+    {
+      i: {
+        ref: "user_agent_ref01",
+        srcdatavar: "user_agent_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-user_agent_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUserAgentFlow"
+}

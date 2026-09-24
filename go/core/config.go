@@ -91,33 +91,39 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "browser",
-						"short": "Browser name",
+						"title": "Browser",
 						"type": "`$STRING`",
+						"short": "Browser name",
 					},
 					map[string]any{
 						"name": "browserVersion",
-						"short": "Browser version",
+						"title": "Browser Version",
 						"type": "`$STRING`",
+						"short": "Browser version",
 					},
 					map[string]any{
 						"name": "device",
-						"short": "Device type",
+						"title": "Device",
 						"type": "`$STRING`",
+						"short": "Device type",
 					},
 					map[string]any{
 						"name": "os",
-						"short": "Operating system name",
+						"title": "Os",
 						"type": "`$STRING`",
+						"short": "Operating system name",
 					},
 					map[string]any{
 						"name": "osVersion",
-						"short": "Operating system version",
+						"title": "Os Version",
 						"type": "`$STRING`",
+						"short": "Operating system version",
 					},
 					map[string]any{
 						"name": "platform",
-						"short": "Platform information",
+						"title": "Platform",
 						"type": "`$STRING`",
+						"short": "Platform information",
 					},
 				},
 				"name": "user_agent",
@@ -127,18 +133,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-											"kind": "query",
-											"name": "ua",
-											"orig": "ua",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/user-agent",
@@ -147,17 +141,30 @@ func MakeConfig() map[string]any {
 										"lit": "user-agent",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"ua",
-									},
+								"parts": []any{
+									"user-agent",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"user-agent",
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "ua",
+											"orig": "ua",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"ua",
+									},
 								},
 							},
 						},

@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,33 +132,39 @@ class Config {
       "fields": [
         {
           "name": "browser",
-          "short": "Browser name",
-          "type": "`$STRING`"
+          "title": "Browser",
+          "type": "`$STRING`",
+          "short": "Browser name"
         },
         {
           "name": "browserVersion",
-          "short": "Browser version",
-          "type": "`$STRING`"
+          "title": "Browser Version",
+          "type": "`$STRING`",
+          "short": "Browser version"
         },
         {
           "name": "device",
-          "short": "Device type",
-          "type": "`$STRING`"
+          "title": "Device",
+          "type": "`$STRING`",
+          "short": "Device type"
         },
         {
           "name": "os",
-          "short": "Operating system name",
-          "type": "`$STRING`"
+          "title": "Os",
+          "type": "`$STRING`",
+          "short": "Operating system name"
         },
         {
           "name": "osVersion",
-          "short": "Operating system version",
-          "type": "`$STRING`"
+          "title": "Os Version",
+          "type": "`$STRING`",
+          "short": "Operating system version"
         },
         {
           "name": "platform",
-          "short": "Platform information",
-          "type": "`$STRING`"
+          "title": "Platform",
+          "type": "`$STRING`",
+          "short": "Platform information"
         }
       ],
       "name": "user_agent",
@@ -175,18 +174,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-                    "kind": "query",
-                    "name": "ua",
-                    "orig": "ua",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/user-agent",
@@ -195,18 +182,31 @@ class Config {
                   "lit": "user-agent"
                 }
               ],
-              "select": {
-                "exist": [
-                  "ua"
-                ]
-              },
+              "parts": [
+                "user-agent"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "user-agent"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "ua",
+                    "orig": "ua",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true,
+                    "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "ua"
+                ]
+              }
             }
           ]
         }

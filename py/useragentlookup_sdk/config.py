@@ -116,33 +116,39 @@ def make_config():
         "fields": [
           {
             "name": "browser",
-            "short": "Browser name",
+            "title": "Browser",
             "type": "`$STRING`",
+            "short": "Browser name",
           },
           {
             "name": "browserVersion",
-            "short": "Browser version",
+            "title": "Browser Version",
             "type": "`$STRING`",
+            "short": "Browser version",
           },
           {
             "name": "device",
-            "short": "Device type",
+            "title": "Device",
             "type": "`$STRING`",
+            "short": "Device type",
           },
           {
             "name": "os",
-            "short": "Operating system name",
+            "title": "Os",
             "type": "`$STRING`",
+            "short": "Operating system name",
           },
           {
             "name": "osVersion",
-            "short": "Operating system version",
+            "title": "Os Version",
             "type": "`$STRING`",
+            "short": "Operating system version",
           },
           {
             "name": "platform",
-            "short": "Platform information",
+            "title": "Platform",
             "type": "`$STRING`",
+            "short": "Platform information",
           },
         ],
         "name": "user_agent",
@@ -152,18 +158,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-                      "kind": "query",
-                      "name": "ua",
-                      "orig": "ua",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/user-agent",
@@ -172,18 +166,31 @@ def make_config():
                     "lit": "user-agent",
                   },
                 ],
+                "parts": [
+                  "user-agent",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "ua",
+                      "orig": "ua",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "ua",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "user-agent",
-                ],
               },
             ],
           },

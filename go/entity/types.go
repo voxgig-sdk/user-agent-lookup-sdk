@@ -1,7 +1,7 @@
 // Typed models for the UserAgentLookup SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,12 +14,6 @@ import (
 
 // UserAgent is the typed data model for the user_agent entity.
 type UserAgent struct {
-	Browser *string `json:"browser,omitempty"`
-	BrowserVersion *string `json:"browserVersion,omitempty"`
-	Device *string `json:"device,omitempty"`
-	Os *string `json:"os,omitempty"`
-	OsVersion *string `json:"osVersion,omitempty"`
-	Platform *string `json:"platform,omitempty"`
 }
 
 // UserAgentLoadMatch is the typed request payload for UserAgent.LoadTyped.
