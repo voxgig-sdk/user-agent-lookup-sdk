@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 UserAgentLookupUtility::setRegistrar(function (UserAgentLookupUtility $u): void {
     $u->clean = [UserAgentLookupClean::class, 'call'];
+    $u->clean_add = [UserAgentLookupClean::class, 'add'];
+    $u->clean_explain = [UserAgentLookupDone::class, 'clean_explain'];
     $u->done = [UserAgentLookupDone::class, 'call'];
     $u->make_error = [UserAgentLookupMakeError::class, 'call'];
     $u->feature_add = [UserAgentLookupFeatureAdd::class, 'call'];

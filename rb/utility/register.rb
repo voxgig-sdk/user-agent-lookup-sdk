@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 UserAgentLookupUtility.registrar = ->(u) {
   u.clean = UserAgentLookupUtilities::Clean
+  u.clean_add = UserAgentLookupUtilities::CleanAdd
+  u.clean_explain = UserAgentLookupUtilities::CleanExplain
   u.done = UserAgentLookupUtilities::Done
   u.make_error = UserAgentLookupUtilities::MakeError
   u.feature_add = UserAgentLookupUtilities::FeatureAdd

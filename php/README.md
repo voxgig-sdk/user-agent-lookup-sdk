@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases](https://github.com/voxgig-sdk/user-agent-lookup-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/user-agent-lookup-sdk
+composer config repositories.user-agent-lookup-sdk path ./user-agent-lookup-sdk/php
+composer require voxgig-sdk/user-agent-lookup-sdk:@dev
+```
 
 
 ## Tutorial: your first API call
