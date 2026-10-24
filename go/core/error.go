@@ -12,6 +12,8 @@ type UserAgentLookupError struct {
 	Ctx    *Context `json:"-"`
 	Result any
 	Spec   any
+	// The HTTP status, -1 when there was no response.
+	Status int
 }
 
 func NewUserAgentLookupError(code string, msg string, ctx *Context) *UserAgentLookupError {
@@ -21,7 +23,12 @@ func NewUserAgentLookupError(code string, msg string, ctx *Context) *UserAgentLo
 		Code:               code,
 		Msg:                msg,
 		Ctx:                ctx,
+		Status:             -1,
 	}
+}
+
+func (e *UserAgentLookupError) NotFound() bool {
+	return 404 == e.Status
 }
 
 func (e *UserAgentLookupError) Error() string {
@@ -35,6 +42,7 @@ func (e *UserAgentLookupError) Record() map[string]any {
 		"sdk":     e.Sdk,
 		"code":    e.Code,
 		"message": e.Msg,
+		"status":  e.Status,
 		"result":  e.Result,
 		"spec":    e.Spec,
 	}

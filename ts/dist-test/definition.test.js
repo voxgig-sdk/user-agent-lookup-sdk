@@ -19,8 +19,18 @@ const PLAN = [
             "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "ua"
+        ],
+        "queryArgs": [
+            {
+                "name": "ua",
+                "wire": "ua"
+            }
         ],
         "auth": null,
         "status": 200,

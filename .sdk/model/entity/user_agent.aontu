@@ -79,6 +79,10 @@ main: kit: entity: user_agent: {
               "ua"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "user-agent"

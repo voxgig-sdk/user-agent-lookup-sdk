@@ -79,6 +79,7 @@ module UserAgentLookupConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -173,6 +174,10 @@ module UserAgentLookupConfig
                     "exist" => [
                       "ua",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
